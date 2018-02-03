@@ -1,0 +1,21 @@
+
+.NavBar {
+  overflow: hidden;
+  background-color: rgb(218, 218, 218);
+}
+
+.NavBar li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 16px;
+}
+
+.NavBar li:hover {
+  background-color: grey;
+}
+.NavBar li:first-child {
+  float: left;
+}
+.NavBar li:last-child {
+  float: right;
+}

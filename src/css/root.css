@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0;
+}
+
+@media (max-width:600px) {
+  .NavBar li {
+    width: 100%;
+  }
+
+  .Footer li {
+    width: 100%;
+  }
+}
