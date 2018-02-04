@@ -1,11 +1,12 @@
 import React from 'react';
+import UserPage from './UserPage';
 import '../css/MainContent.css';
 
 const MainContent = () => {
   return (
-    <div className="MainContent">
-      MAIN CONTENT
-    </div>
+    <main>
+      <UserPage/>
+    </main>
   )
 }
 

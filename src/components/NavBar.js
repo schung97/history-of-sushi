@@ -5,7 +5,7 @@ import '../css/NavBar.css';
 const NavBar = (props) => {
   console.log('hey', props.nav[0])
   return (
-    <nav className="NavBar">
+    <nav>
       <li>History of Sushi</li>
       <li>Sign Out</li>
     </nav>
