@@ -7,10 +7,10 @@ import store from './STORE';
 import './css/root.css';
 
 ReactDOM.render(
-  <Router>
     <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>,
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
   document.getElementById('root')
 );

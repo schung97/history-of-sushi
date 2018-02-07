@@ -30,6 +30,7 @@ class SignUp extends React.Component {
   }
 
   render() {
+    console.log("from signup", this.props)
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <input type="text" name="email" placeholder="Email" value={this.state.user.email}/>
@@ -44,8 +45,8 @@ class SignUp extends React.Component {
   }
 }
 
-  const mapDispatchToProps = dispatch => {
-    return bindActionCreators({ makeNewUser }, dispatch);
-  }
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ makeNewUser }, dispatch);
+}
 
 export default connect(null, mapDispatchToProps)(SignUp);

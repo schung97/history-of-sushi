@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
+// import Main from '../../_protected/presentational/Main';
 import SignUp from '../component/SignUp';
 import SignIn from '../component/SignIn';
 import '../../css/LandingPage.css';
