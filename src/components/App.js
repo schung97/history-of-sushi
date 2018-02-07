@@ -1,9 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { fetchUser } from '../actions/Authentication';
+import { bindActionCreators } from 'redux';
 import Header from './Header';
 import Home from './Home';
-import NavBar from './NavBar';
-import MainContent from './MainContent';
+import SignUp from '../containers/SignUp';
+import SignIn from '../containers/SignIn';
+import MainContent from '../components/MainContent';
 import Footer from './Footer';
 // BrowserRouter is the router implementation for HTML5 browsers (vs Native).
 // Link is your replacement for anchor tags.
@@ -13,21 +16,45 @@ import Footer from './Footer';
 import { connect } from 'react-redux';
 
 import '../css/App.css';
+class App extends React.Component {
 
-const App = () => (
-  <Router>
-    <div className="app">
-      <Header/>
-      <NavBar/>
-        <Switch>
-          <Route exact path="/" render={Home}/>
-          <MainContent/>
-        </Switch>
-      <Footer/>
-    </div>
-  </Router>
-)
+  componentDidMount() {
+     if (localStorage.getItem('token')) {
+       this.props.fetchUser();
+     } else {
+       this.setState({ authCompleted: true})
+     }
+   }
 
-export default App;
+  render() {
+    console.log('APP', this.props)
+    return (
+      <Router>
+        <div className="app">
+          <Header/>
 
-// place navigations.
+            <Switch>
+              <Route exact path="/" render={Home}/>
+              <Route exact path="/signup" component={SignUp}/>
+              <Route exact path="/login" component={SignIn}/>
+
+              <Route exact path="/profile" render={MainContent} />
+
+            </Switch>
+          <Footer/>
+        </div>
+      </Router>
+    )
+  }
+
+}
+
+const mapStateToProps = state => {
+  return { state }
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ fetchUser }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

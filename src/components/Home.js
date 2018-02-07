@@ -1,13 +1,13 @@
 import React from 'react';
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
-import '../css/SignIn-UpForm.css';
+import { Link } from 'react-router-dom';
+import '../css/Home.css';
 
 const Home = () => {
   return (
     <div className="home">
-      <SignUpForm />
-      <SignInForm />
+      <div id="intro-text">Sushi, list, blah, blah</div>
+      <Link to="/signup"><button>Sign Up</button></Link>
+      <Link to="/login"><button>Log In</button></Link>
     </div>
   )
 }

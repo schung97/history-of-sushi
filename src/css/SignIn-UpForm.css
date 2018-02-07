@@ -1,6 +1,6 @@
 
 input[type="text"], select {
-    width: 60%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -8,9 +8,9 @@ input[type="text"], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
-/*eventually change width to px*/
+
 input[type=submit] {
-    width: 60%;
+    width: 100%;
     background-color: rgb(254, 204, 73);
     color: white;
     padding: 14px 20px;
@@ -21,10 +21,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: rgb(237, 104, 98);
+  background-color: rgb(237, 104, 98);
 }
 
 form {
+    width: 300px;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
