@@ -1,9 +1,8 @@
 import React from 'react';
-import Auth from '../api/root';
 import { connect } from 'react-redux';
+import { loginUser } from '../AuthAction';
 import { bindActionCreators } from 'redux';
-import { loginUser } from '../actions/Authentication';
-import '../css/SignIn-UpForm.css';
+import '../../css/SignIn-UpForm.css';
 
 class SignIn extends React.Component {
   constructor() {
@@ -23,11 +22,10 @@ class SignIn extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({ auth: {...this.state.auth, [`${e.target.name}`]: e.target.value }}, () => console.log(this.state))
+    this.setState({ auth: {...this.state.auth, [`${e.target.name}`]: e.target.value }})
   }
 
   render() {
-
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <input type="text" name="username" placeholder="Username" value={this.state.auth.username}/>
