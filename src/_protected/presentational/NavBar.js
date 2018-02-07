@@ -1,15 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { logoutUser } from '../../_public/AuthAction';
+import { bindActionCreators } from 'redux';
 import '../../css/NavBar.css';
 
-const NavBar = () => {
+const NavBar = (props) => {
+  console.log('navbar', props.logoutUser)
   return (
     <nav>
       <li>History of Sushi</li>
-      <Link to="/signed-out"><li>Sign Out</li></Link>
+      <li onClick={ () => props.logoutUser(props.history)}>Sign Out</li>
     </nav>
   )
 }
 
-export default NavBar;
+// const mapStateToProps = state => {
+//   // return {
+//   //   username: state.AuthReducer.currentUser.user.username
+//   // }
+// }
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ logoutUser }, dispatch);
+}
+export default connect(null,mapDispatchToProps)(NavBar);

@@ -20,8 +20,9 @@ const login = fields => {
 // return value = json: { id: current_user.id, username: current_user.username }
 const getWithToken = url => {
  const token = localStorage.getItem('token')
+ console.log('token', token)
  return fetch(url, {
-   headers: { Authorization: token }
+   header: { Authorization: token }
  }).then(res => res.json())
 }
 

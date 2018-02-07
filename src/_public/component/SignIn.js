@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import '../../css/SignIn-UpForm.css';
 
 class SignIn extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state= {
       auth: {
