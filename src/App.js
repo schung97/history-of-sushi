@@ -33,16 +33,16 @@ class App extends React.Component {
                   // <Route Main {...this.props} />
   render() {
     console.log('Is User Logged In?', this.props.loggedIn)
-    const hide = this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
-    const show = this.props.location.pathname.indexOf('/sign') !== 0;
+    const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
+    const showNavBar = this.props.loggedIn;
 
     return (
       <div className="app">
         <Header/>
 
         <div className="main">
-            { show ? (  <NavBar {...this.props}/> ) : null }
-            { hide ? null : ( <UserPageNavBar /> ) }
+            { showNavBar ? (  <NavBar {...this.props}/> ) : null }
+            { showUserNavBar ? ( <UserPageNavBar /> ) :null }
 
           <Switch>
             <Route exact path="/" component={Home}/>
