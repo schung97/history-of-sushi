@@ -2,6 +2,7 @@ import React from 'react';
 import { intro } from '../../text/Guide.js'
 import Left from 'react-icons/lib/fa/angle-left';
 import { Link } from 'react-router-dom';
+import IsAuthenticated from '../../IsAuthenticated';
 
 const UserSushiRank = (props) => {
   return (
@@ -30,4 +31,4 @@ const UserSushiRank = (props) => {
   )
 }
 
-export default UserSushiRank;
+export default IsAuthenticated(UserSushiRank);

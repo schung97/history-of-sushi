@@ -6,6 +6,7 @@ import ExtraStuff from '../presentational/ExtraStuff';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Right from 'react-icons/lib/fa/angle-right';
+import IsAuthenticated from '../../IsAuthenticated';
 // import { bindActionCreators } from 'redux';
 import '../../css/UserProfile.css';
 
@@ -46,4 +47,4 @@ const mapStateToProps = state => {
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);
 // }
-export default connect(mapStateToProps)(UserProfile);
+export default IsAuthenticated(connect(mapStateToProps)(UserProfile));

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IsAuthenticated from '../../IsAuthenticated';
 import '../../css/UserPageNavBar.css';
 
 const UserPageNavBar = () => {
@@ -11,4 +12,4 @@ const UserPageNavBar = () => {
   )
 }
 
-export default UserPageNavBar;
+export default IsAuthenticated(UserPageNavBar);

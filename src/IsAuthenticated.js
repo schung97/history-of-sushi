@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
-import { getCurrentUser } from '../_public/AuthAction';
+import { getCurrentUser } from './_public/AuthAction';
 
 const IsAuthenticated = ComposedComponent => {
   class AuthenticationCheck extends React.Component {

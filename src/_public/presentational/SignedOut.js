@@ -8,7 +8,7 @@ const SignedOut = (props) => {
         <li>firstname + lastname</li>
         <li>Sushi Knowledge:_____</li>
       </ul>
-      <Link to="/login"><button>Sign Back In?</button></Link>
+      <Link to="/signin"><button>Sign Back In?</button></Link>
     </div>
   )
 }

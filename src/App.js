@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getContentsAndQuestionsByCategory, getUserContents } from './_protected/ContentAction';
-
 // import Main from './_protected/presentational/Main';
 import NavBar from './_protected/presentational/NavBar';
 import UserPageNavBar from './_protected/presentational/UserPageNavBar';
@@ -34,14 +33,12 @@ class App extends React.Component {
                   // <Route Main {...this.props} />
   render() {
     console.log('Is User Logged In?', this.props.loggedIn)
-    const hide = this.props.location.pathname === '/sushi-knowledge';
-    const show = this.props.location.pathname.indexOf('/sign') === 0;
+    const hide = this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
+    const show = this.props.location.pathname.indexOf('/sign') !== 0;
 
     return (
       <div className="app">
         <Header/>
-
-
 
         <div className="main">
             { show ? (  <NavBar {...this.props}/> ) : null }

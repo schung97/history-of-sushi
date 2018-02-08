@@ -17,4 +17,4 @@ const NavBar = (props) => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ logoutUser }, dispatch);
 }
-export default connect(null,mapDispatchToProps)(NavBar);
+export default connect(null, mapDispatchToProps)(NavBar);
