@@ -1,9 +1,9 @@
 import React from 'react';
 import { intro } from '../../text/Guide.js'
 import Left from 'react-icons/lib/fa/angle-left';
+import { Link } from 'react-router-dom';
 
 const UserSushiRank = (props) => {
-console.log("HELLOOOOO from sushi-rank", props.history)
   return (
     <div>
       <section>
@@ -24,7 +24,8 @@ console.log("HELLOOOOO from sushi-rank", props.history)
       <details>
         <summary>Appreciation</summary>
       </details>
-      <span><Left /></span><button>Begin</button>
+      <Link to="/profile"><h2><Left /></h2></Link>
+      <Link to="/sushi-knowledge"><button>Begin</button></Link>
     </div>
   )
 }

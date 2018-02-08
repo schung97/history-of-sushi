@@ -20,14 +20,13 @@ const login = fields => {
 // return value = json: { id: current_user.id, username: current_user.username }
 const getWithToken = url => {
  const token = localStorage.getItem('token')
- console.log('token', token)
  return fetch(url, {
-   header: { Authorization: token }
+   headers: { Authorization: token }
  }).then(res => res.json())
 }
 
 const getCurrentUser = () => {
- return getWithToken('http://localhost:3000/api/v1/current-user')
+  return getWithToken('http://localhost:3000/api/v1/current-user')
 }
 
 

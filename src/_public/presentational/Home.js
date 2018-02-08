@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../../css/Home.css';
 
 const Home = () => {
-  console.log('home')
   return (
     <div className="home">
       <div id="intro-text">Sushi, list, blah, blah</div>

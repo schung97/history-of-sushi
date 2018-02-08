@@ -1,11 +1,11 @@
-// const SET_CURRENT_USER = (user, bool) => {
-//   return { type: "SET_CURRENT_USER", user, bool }
-// }
+const defaultState = { currentUser: {}, loading: false, loggedIn: false }
 
-const AuthReducer = (state = { loggedIn: false }, action) => {
+const auth = (state = defaultState, action) => {
   switch (action.type) {
+    case "ASYNC_START":
+      return {...state, loading: true}
     case "SET_CURRENT_USER":
-      return {...state, currentUser: action.user , loggedIn: true }
+      return {...state, currentUser: action.user, loggedIn: true }
     case "LOGOUT_USER":
       return { currentUser: {}, loggedIn: false};
     case "ERROR":
@@ -15,4 +15,4 @@ const AuthReducer = (state = { loggedIn: false }, action) => {
   }
 }
 
-export default AuthReducer;
+export default auth;

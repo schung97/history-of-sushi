@@ -10,29 +10,26 @@ const IsAuthenticated = ComposedComponent => {
       super(props);
 
       this.state = {
-        authCompleted: this.props.auth
+        authCompleted: this.props.loggedIn
       }
     }
 
     componentDidMount() {
       if (localStorage.getItem('token')) {
-        console.log('componentDidMount true')
-        this.props.getCurrentUser();
+        this.props.getCurrentUser()
       } else {
-        console.log('componentDidMount false')
-        this.setState({ authCompleted: true });
+        this.setState({ authCompleted: true }, console.log('componentDidMount false'));
       }
     }
 
     componentWillReceiveProps(nextProps) {
-      console.log('will recieve nxt props', nextProps)
-      if (nextProps.auth) {
+      if (nextProps.loggedIn) {
         this.setState({ authCompleted: true });
       }
     }
 
     render() {
-      console.log('authentication', this.props)
+
      if (this.state.authCompleted) {
        return this.props.loggedIn ? ( <ComposedComponent {...this.props}/> ) : ( <Redirect to="/" /> );
      } else {
@@ -43,9 +40,8 @@ const IsAuthenticated = ComposedComponent => {
   }
 
   const mapStateToProps = state => {
-    console.log('auth, map to props', state)
     return {
-      auth: state.AuthReducer.loggedIn
+      loggedIn: state.auth.loggedIn
     }
   }
 

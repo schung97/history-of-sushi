@@ -26,6 +26,7 @@ class SignUp extends React.Component {
   }
 
   handleChange = (e) => {
+    //TODO add validations
     this.setState({ user: {...this.state.user, [`${e.target.name}`]: e.target.value }})
   }
 
