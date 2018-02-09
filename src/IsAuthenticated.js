@@ -17,7 +17,6 @@ const IsAuthenticated = ComposedComponent => {
     componentDidMount() {
       if (localStorage.getItem('token') && !this.props.userID) {
         this.props.getCurrentUser()
-        console.log('componentDidMount true, localStorage has token')
       } else {
         this.setState({ authCompleted: true }, console.log('componentDidMount false'));
       }

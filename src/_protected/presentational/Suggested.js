@@ -25,7 +25,6 @@ console.log('suggested', props)
 
 
 const mapStateToProps = state => {
-  console.log(state)
   return { suggestions: state.user.suggestions }
 }
 // const mapDispatchToProps = dispatch => {

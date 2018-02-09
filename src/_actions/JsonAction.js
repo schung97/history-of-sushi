@@ -17,12 +17,12 @@ export const getContentsAndQuestionsByCategory = () => {
         let test = Object.assign(cont, q);
         content.push(test);
       })
-      dispatch({ type: "SET_CONTENTS_AND_QUESTIONS_BY_CATEGORY", category: content, loaded: true})
+      dispatch({ type: "SET_CONTENTS_AND_QUESTIONS_BY_CATEGORY", contents: content, loading: false})
     })
   }
 }
 
-// ** called in loginUser() **//
+// ** not used currently **//
 // export const getUserContents = id => {
 //   return dispatch => {
 //     Adapter.getUserContents(id).then( user => {

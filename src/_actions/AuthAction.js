@@ -22,16 +22,18 @@ export const loginUser = (formdata, history) => dispatch => {
   Auth.login(formdata).then( user => {
     localStorage.setItem('token', user.jwt);
     dispatch({ type: 'SET_CURRENT_USER', user: user.user});
-
+    // dispatch
     history.push('/profile');
   }).catch(error => dispatch( { type: "ERROR", error: error.message } ))
 };
 
-// 2. (decode) return value = json: { id: current_user.id, username: current_user.username }
+// 2. (decode) use case: refresh and content remains
 export const getCurrentUser = () => dispatch => {
   dispatch({ type: 'ASYNC_START' });
   Auth.getCurrentUser()
     .then( user => {
+      // debugger
+      // user.knowledge
       dispatch({ type: "SET_CURRENT_USER", user, loggedIn: true });
     })
     .catch(error => dispatch({ type: "ERROR", error: error.message }))
@@ -43,21 +45,3 @@ export const logoutUser = history => {
   history.push('/signed-out');
   return { type: 'LOGOUT_USER' };
 };
-
-
-
-// const getUserStuff = id => {
-//    dispatch => {
-//     Adapter.getUserContents(id).then( user => {
-//       // const info = {
-//       //   firstname: user.firstname,
-//       //   lastname: user.lastname,
-//       //   knowledge: user.knowledge
-//       // }
-//       // dispatch({ type: "SET_USER_INFO", info})
-//       dispatch({ type: "SET_USER_FAVORITES", favorites: user.favorites })
-//       debugger
-//       dispatch({ type: w"SET_USER_SUGGESTIONS", suggestions: user.suggestions })
-//     })
-//   }
-// }

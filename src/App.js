@@ -11,6 +11,7 @@ import UserSushiRank from './_protected/presentational/UserSushiRank';
 //** switch back if it becomes stateful **//
 // import Content from './_protected/component/Content';
 import Content from './_protected/presentational/Content';
+import ContentDisplay from './_protected/presentational/ContentDisplay';
 
 import SignUp from './_public/component/SignUp';
 import SignIn from './_public/component/SignIn';
@@ -75,7 +76,7 @@ const mapStateToProps = state => {
 
   return {
     loggedIn: state.auth.loggedIn ,
-    // userID: state.auth.currentUser.id,
+    userRank: state.auth.currentUser.knowledge,
     loading: state.json.loading
   }
 }

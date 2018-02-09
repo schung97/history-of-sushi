@@ -1,17 +1,17 @@
 
-const initialState  = {
-  category: '',
-  facts: [],
-  questions: []
-}
+// const initialState  = {
+//   contents: [
+//     { category: '',
+//      facts: [],
+//      questions: []}
+//   ],
+//   loading: false
+// }
 
-const json = (state = { category: [], loaded: false }, action) => {
+const json = (state = { contents: [], loading: true }, action) => {
   switch (action.type) {
     case "SET_CONTENTS_AND_QUESTIONS_BY_CATEGORY":
-      return {...state, category: action.category ,loaded: action.loaded}
-    case "SET_CONTENT_BY_RANK":
-      return {...state, category: action.category ,loaded: action.loaded}
-
+      return {...state, contents: action.contents ,loading: action.loading}
     default:
       return state;
   }
