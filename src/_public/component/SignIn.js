@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../AuthAction';
+import { loginUser } from '../../_actions/AuthAction';
+// import { getUserContents } from '../../_actions/JsonAction';
 import { bindActionCreators } from 'redux';
 import '../../css/SignIn-UpForm.css';
 

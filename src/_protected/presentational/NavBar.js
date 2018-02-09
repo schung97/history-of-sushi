@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../_public/AuthAction';
+import { logoutUser } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
 import '../../css/NavBar.css';
 

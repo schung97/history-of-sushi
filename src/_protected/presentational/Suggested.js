@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SuggestedShow from './SuggestedShow';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 //
 
 const Suggested = (props) => {
-
+console.log('suggested', props)
   if ( props.suggestions === undefined ) {
     return ( <SuggestedShow restaruant={"hi im here because of undefined"}/> )
   } else {
@@ -21,12 +21,17 @@ const Suggested = (props) => {
 }
 
 
+// export default Suggested;
 
 
 const mapStateToProps = state => {
-  return { suggestions: state.content.suggestions }
+  console.log(state)
+  return { suggestions: state.user.suggestions }
 }
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);
 // }
+
+
+
 export default connect(mapStateToProps)(Suggested);

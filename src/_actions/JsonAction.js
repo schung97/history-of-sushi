@@ -22,21 +22,22 @@ export const getContentsAndQuestionsByCategory = () => {
   }
 }
 
-
-export const getUserContents = id => {
-  return dispatch => {
-    Adapter.getUserContents(id).then( user => {
-      const info = {
-        firstname: user.firstname,
-        lastname: user.lastname,
-        knowledge: user.knowledge
-      }
-      dispatch({ type: "SET_USER_INFO", info})
-      dispatch({ type: "SET_USER_FAVORITES", favorites: user.favorites })
-      dispatch({ type: "SET_USER_SUGGESTIONS", suggestions: user.suggestions })
-    })
-  }
-}
+// ** called in loginUser() **//
+// export const getUserContents = id => {
+//   return dispatch => {
+//     Adapter.getUserContents(id).then( user => {
+//       // const info = {
+//       //   firstname: user.firstname,
+//       //   lastname: user.lastname,
+//       //   knowledge: user.knowledge
+//       // }
+//       // dispatch({ type: "SET_USER_INFO", info})
+//       dispatch({ type: "SET_USER_FAVORITES", favorites: user.favorites })
+//       debugger
+//       dispatch({ type: "SET_USER_SUGGESTIONS", suggestions: user.suggestions })
+//     })
+//   }
+// }
 
 
 

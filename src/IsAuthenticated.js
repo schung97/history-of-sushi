@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
-import { getCurrentUser } from './_public/AuthAction';
+import { getCurrentUser } from './_actions/AuthAction';
 
 const IsAuthenticated = ComposedComponent => {
   class AuthenticationCheck extends React.Component {
@@ -17,6 +17,7 @@ const IsAuthenticated = ComposedComponent => {
     componentDidMount() {
       if (localStorage.getItem('token') && !this.props.userID) {
         this.props.getCurrentUser()
+        console.log('componentDidMount true, localStorage has token')
       } else {
         this.setState({ authCompleted: true }, console.log('componentDidMount false'));
       }

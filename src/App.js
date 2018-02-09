@@ -2,25 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { getContentsAndQuestionsByCategory, getUserContents } from './_protected/ContentAction';
-// import Main from './_protected/presentational/Main';
+import { getContentsAndQuestionsByCategory } from './_actions/JsonAction';
+
 import NavBar from './_protected/presentational/NavBar';
 import UserPageNavBar from './_protected/presentational/UserPageNavBar';
 import UserProfile from './_protected/presentational/UserProfile';
 import UserSushiRank from './_protected/presentational/UserSushiRank';
-import Content from './_protected/component/Content';
+//** switch back if it becomes stateful **//
+// import Content from './_protected/component/Content';
+import Content from './_protected/presentational/Content';
 
 import SignUp from './_public/component/SignUp';
 import SignIn from './_public/component/SignIn';
 import SignedOut from './_public/presentational/SignedOut';
 import Home from './_public/presentational/Home';
 import Header from './_public/presentational/Header';
-// import LandingPage from './_public/presentational/LandingPage';
 import Footer from './_public/presentational/Footer';
 
 import './css/App.css';
 import './css/Main.css';
-// import './css/LandingPage.css';
 
 class App extends React.Component {
 
@@ -28,14 +28,13 @@ class App extends React.Component {
     this.props.getContentsAndQuestionsByCategory()
     // this.props.getUserContents(this.props.userID);
   }
-//   { this.props.loggedIn ? <Main {...this.props} /> : <LandingPage {...this.props} /> }
-          //<Redirect to="/" />
-                  // <Route Main {...this.props} />
+
   render() {
     console.log('Is User Logged In?', this.props.loggedIn)
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;
-    if (this.props.loaded) {
+
+    if (!this.props.loading) {
 
       return (
           <div className="app">
@@ -62,7 +61,7 @@ class App extends React.Component {
         )
       } else {
         return (
-          <div>loading</div>
+          <div>L O A D I N G</div>
         )
       }
 
@@ -73,18 +72,16 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // contents and questions as props, only used for confirmation, get rid of later?
+
   return {
     loggedIn: state.auth.loggedIn ,
-    userID: state.auth.currentUser,
-    contents: state.content.contents,
-    questions: state.content.questions,
-    loaded: state.content.loaded
+    // userID: state.auth.currentUser.id,
+    loading: state.json.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ getContentsAndQuestionsByCategory, getUserContents }, dispatch);
+  return bindActionCreators({ getContentsAndQuestionsByCategory }, dispatch);
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
