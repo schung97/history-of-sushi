@@ -15,7 +15,7 @@ const IsAuthenticated = ComposedComponent => {
     }
 
     componentDidMount() {
-      if (localStorage.getItem('token')) {
+      if (localStorage.getItem('token') && !this.props.userID) {
         this.props.getCurrentUser()
       } else {
         this.setState({ authCompleted: true }, console.log('componentDidMount false'));
@@ -41,7 +41,8 @@ const IsAuthenticated = ComposedComponent => {
 
   const mapStateToProps = state => {
     return {
-      loggedIn: state.auth.loggedIn
+      loggedIn: state.auth.loggedIn,
+      userID: state.auth.currentUser.id
     }
   }
 

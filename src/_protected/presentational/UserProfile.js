@@ -16,7 +16,7 @@ const UserProfile = (props) => {
   <div className="user-profile">
     <div className="user-info">
       <img src="https://media.giphy.com/media/xUOwG7xTFIS7K5Z12o/giphy.gif" alt="default-pic"/>
-        { props.user === undefined ?
+        { props.user.id === undefined ?
             ( <ul><dl>not loaded</dl></ul> )
             : ( <ul>
                   <dl>{`${props.user.firstname} ${props.user.lastname}`}</dl>
@@ -42,7 +42,9 @@ const UserProfile = (props) => {
 }
 
 const mapStateToProps = state => {
-  return { user: state.content.info }
+  return {
+    user: state.auth.currentUser
+   }
 }
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);

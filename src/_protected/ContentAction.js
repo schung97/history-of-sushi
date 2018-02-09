@@ -11,7 +11,13 @@ export const getContentsAndQuestionsByCategory = () => {
         contents.push({category: cat.name, facts: cat.contents })
         questions.push({category: cat.name, questions: cat.questionnaires })
       })
-      dispatch({ type: "SET_CONTENTS_AND_QUESTION_BY_CATEGORY", contents, questions })
+      const content = [];
+      contents.forEach( cont => {
+        let q = questions.find( c => c.category === cont.category )
+        let test = Object.assign(cont, q);
+        content.push(test);
+      })
+      dispatch({ type: "SET_CONTENTS_AND_QUESTIONS_BY_CATEGORY", category: content, loaded: true})
     })
   }
 }
@@ -31,6 +37,9 @@ export const getUserContents = id => {
     })
   }
 }
+
+
+
 
 
 // export const getFactsByCategory = () => {

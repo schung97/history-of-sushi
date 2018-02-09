@@ -35,31 +35,40 @@ class App extends React.Component {
     console.log('Is User Logged In?', this.props.loggedIn)
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;
+    if (this.props.loaded) {
 
-    return (
-      <div className="app">
-        <Header/>
+      return (
+          <div className="app">
+            <Header/>
 
-        <div className="main">
-            { showNavBar ? (  <NavBar {...this.props}/> ) : null }
-            { showUserNavBar ? ( <UserPageNavBar /> ) :null }
+            <div className="main">
+                { showNavBar ? (  <NavBar {...this.props}/> ) : null }
+                { showUserNavBar ? ( <UserPageNavBar /> ) :null }
 
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/signup" component={SignUp}/>
-            <Route exact path="/signin" component={SignIn}/>
-            <Route exact path="/signed-out" component={SignedOut}/>
-            <Route exact path="/profile" component={UserProfile} />
-            <Route exact path="/sushi-rank" component={UserSushiRank}/>
-            <Route exact path="/sushi-knowledge" component={Content}/>
-          </Switch>
-        </div>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/signup" component={SignUp}/>
+                <Route exact path="/signin" component={SignIn}/>
+                <Route exact path="/signed-out" component={SignedOut}/>
+                <Route exact path="/profile" component={UserProfile} />
+                <Route exact path="/sushi-rank" component={UserSushiRank}/>
+                <Route exact path="/sushi-knowledge" component={Content}/>
+              </Switch>
+            </div>
 
-        <Footer/>
+            <Footer/>
 
-      </div>
-    )
-  }
+          </div>
+        )
+      } else {
+        return (
+          <div>loading</div>
+        )
+      }
+
+    }
+
+
 
 }
 
@@ -69,7 +78,8 @@ const mapStateToProps = state => {
     loggedIn: state.auth.loggedIn ,
     userID: state.auth.currentUser,
     contents: state.content.contents,
-    questions: state.content.questions
+    questions: state.content.questions,
+    loaded: state.content.loaded
   }
 }
 
