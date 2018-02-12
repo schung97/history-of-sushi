@@ -1,10 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 
 const FavoritedList = (props) => {
   const restaurant = props.restaurants.map((restaurant, i) => {
-    return (<li onClick={() => props.handleClick(restaurant.restaurant, props.history)} key={i}>{restaurant.restaurant}</li>)
+    return (<Link to={`/favorites/${restaurant.id}`}key={i}><ul>{restaurant.restaurant}</ul></Link>)
   } )
   return ( <div className="dropdown-content">{restaurant}</div> )
 }

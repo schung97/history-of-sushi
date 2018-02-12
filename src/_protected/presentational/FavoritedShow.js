@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
 // import { bindActionCreators } from 'redux';
 //
 
 const FavoritedShow = (props) => {
-console.log('fav', props)
+
     if (props.page === undefined) {
       return (<div> favorited show</div>)
     } else {
@@ -27,10 +28,11 @@ console.log('fav', props)
 
 
 
-const mapStateToProps = state => {
-  return { page: state.page.show.favorited }
+const mapStateToProps = (state, prevProps) => {
+  const favorite = state.user.favorites.find( s => s.id === Number(prevProps.match.params.favorite_id))
+  return { page: favorite }
 }
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);
 // }
-export default IsAuthenticated(connect(mapStateToProps)(FavoritedShow));
+export default IsAuthenticated(withRouter(connect(mapStateToProps)(FavoritedShow)));

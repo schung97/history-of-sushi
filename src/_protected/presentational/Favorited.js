@@ -10,11 +10,6 @@ import '../../css/DropdownBar.css';
 
 class Favorited extends React.Component {
 
-  handleClick = (restaurant, history) => {
-    this.props.showCurrentFav(restaurant, this.props.favorites)
-    history.push(`/favorites`)
-  }
-
   render () {
     if ( this.props.favorites === undefined ) {
       return ( <FavoritedList restaurants={"hi im here because of undefined"}/> )

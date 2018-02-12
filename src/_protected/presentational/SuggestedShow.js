@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
 // import { bindActionCreators } from 'redux';
 
 const SuggestedShow = (props) => {
-console.log('suggest', props)
     if (props.page === undefined) {
       return (<div> Suggestions</div>)
     } else {
@@ -26,10 +26,13 @@ console.log('suggest', props)
 
 
 
-const mapStateToProps = state => {
-  return { page: state.page.show.suggested }
+const mapStateToProps = (state, prevProps) => {
+  const suggestion = state.user.suggestions.find( s => s.id === Number(prevProps.match.params.suggestion_id))
+  return {
+    page: suggestion,
+  }
 }
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);
 // }
-export default IsAuthenticated(connect(mapStateToProps)(SuggestedShow));
+export default IsAuthenticated(withRouter(connect(mapStateToProps)(SuggestedShow)));

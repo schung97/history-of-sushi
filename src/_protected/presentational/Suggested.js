@@ -5,7 +5,6 @@ import { showCurrentSuggestion } from '../../_actions/PageAction'
 import IsAuthenticated from '../../IsAuthenticated';
 
 // ** files ** //
-// import SuggestedShow from './SuggestedShow';
 import SuggestedList from './SuggestedList';
 import '../../css/DropdownBar.css';
 
@@ -15,11 +14,6 @@ class Suggested extends React.Component {
   handleLike = (restaurant, history) => {
     // this.props.createFavorite()
     //this.props.
-  }
-
-  handleClick = (restaurant, history) => {
-    this.props.showCurrentSuggestion(restaurant, this.props.suggestions)
-    history.push(`/suggestions`)
   }
 
   render () {

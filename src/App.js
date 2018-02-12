@@ -68,8 +68,8 @@ class App extends React.Component {
                 <Route exact path="/profile" component={UserProfile} />
                 <Route exact path="/sushi-rank" component={UserSushiRank}/>
                 <Route exact path="/sushi-knowledge" component={Content}/>
-                <Route exact path="/favorites" component={FavoritedShow} />
-                <Route exact path="/suggestions/:restaur" component={SuggestedShow} />
+                <Route path="/favorites/:favorite_id" component={FavoritedShow} />
+                <Route path="/suggestions/:suggestion_id" component={SuggestedShow} />
               </Switch>
             </div>
 

@@ -53,3 +53,11 @@
 .suggested:hover .drop-button {
   background-color: rgb(237, 104, 98);
 }
+
+.favorited:hover .dropdown-content {
+  display: block;
+}
+
+.favorited:hover .drop-button {
+  background-color: rgb(237, 104, 98);
+}
