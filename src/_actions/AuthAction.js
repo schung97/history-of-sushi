@@ -48,12 +48,11 @@ export const logoutUser = history => {
 
 // ***** TODO everything below move to another file** later ** //
 ///// ***** new favorite maker
-export const createFavoriteFromSuggestions = (user_id, restaurant_id, suggestion_id) => {
+export const createFavoriteFromSuggestions = (user_id, restaurant_id, suggestion_id, history) => {
   return dispatch => {
     Adapter.createFavorite({ user_id, restaurant_id, suggestion_id }).then( user => {
-      const favorites = user.favorites
-      const suggestions = user.suggestions
-      dispatch({ type: "SET_CURRENT_USER", favorites, suggestions })
+      dispatch({ type: "SET_CURRENT_USER", user })
+      history.push('/profile')
     })
   }
 }
@@ -63,7 +62,7 @@ export const deleteFavorite = id => {
     Adapter.deleteFavorite(id).then( user => {
       const favorites = user.favorites
       const suggestions = user.suggestions
-      dispatch({ type: "SET_CURRENT_USER", favorites, suggestions })
+      dispatch({ type: "SET_CURRENT_USER", user })
     })
   }
 }

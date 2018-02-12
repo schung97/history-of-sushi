@@ -10,7 +10,7 @@ import '../../css/SuggestionsShow.css';
 
 
 import Heart from 'react-icons/lib/ti/heart-outline';
-import { plusSlides} from '../../styling';
+import { plusSlides } from '../../styling';
 import { createFavoriteFromSuggestions } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
 
@@ -48,8 +48,8 @@ import { bindActionCreators } from 'redux';
 // slideIndex;
 // showSlides(slideIndex)
 
-const SuggestedShow = (props) => {
-  // slideIndex;
+const SuggestedShow = (props ) => {
+  // slideIndex = 1;
   // showSlides(slideIndex)
 console.log('suggested show', props)
     if (props.page === undefined) {
@@ -67,7 +67,7 @@ console.log('suggested show', props)
           {photos}
           <a className="prev" onClick={() => plusSlides(-1)}>back</a>
           <a className="next" onClick={() => plusSlides(1)}>next</a>
-          <h1><Heart onClick={() => props.createFavoriteFromSuggestions(props.user.id, props.page.restaurant_id, props.page.id)}/></h1>
+          <h1><Heart onClick={() => props.createFavoriteFromSuggestions(props.user.id, props.page.restaurant_id, props.page.id, props.history)}/></h1>
           <dl>{ props.page.restaurant }</dl>
           <dl>{ props.page.rating }</dl>
           <dl>{ props.page.address }</dl>
@@ -77,7 +77,6 @@ console.log('suggested show', props)
         </div>
       )
     }
-
 }
 
 

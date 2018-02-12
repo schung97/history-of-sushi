@@ -67,7 +67,7 @@ class App extends React.Component {
                 <Route exact path="/signed-out" component={SignedOut}/>
                 <Route exact path="/profile" component={UserProfile} />
                 <Route exact path="/sushi-rank" component={UserSushiRank}/>
-                <Route exact path="/sushi-knowledge" component={Content}/>
+                <Route path="/sushi-knowledge" component={Content}/>
                 <Route path="/favorites/:favorite_id" component={FavoritedShow} />
                 <Route path="/suggestions/:suggestion_id" component={SuggestedShow} />
               </Switch>

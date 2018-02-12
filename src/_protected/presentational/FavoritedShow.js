@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
  // ** TODO css butons later *** //
 const FavoritedShow = (props) => {
 
-    if (props.page === undefined) {
+    if (!props.page) {
       return (<div> favorited show</div>)
     } else {
       return (

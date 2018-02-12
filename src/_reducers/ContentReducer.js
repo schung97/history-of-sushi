@@ -1,8 +1,8 @@
 
-const content = (state = { current: []}, action) => {
+const content = (state = { contents: [], questions: [] }, action) => {
   switch (action.type) {
-    case "SET_CONTENT_BY_RANK":
-      return { ...state, current: action.current }
+    case "SET_CONTENTS_BY_RANK":
+      return { ...state, contents: action.contents, questions: action.questions }
     default:
       return state;
   }

@@ -81,7 +81,7 @@ export const findContentByRank = (rank, categories) =>  {
 
 
 
-export const randomlySort = (content, key) => {
+export const randomlySort = (content) => {
   const randomly = content.sort(() => (.5 - Math.random()))
   return randomly;
 }
@@ -91,12 +91,43 @@ export const randomlySelectOne = content => {
   return content[randomIndex]
 }
 
-export const questionDisplay = content => {
-  return (<div>{content.question}</div>)
-}
+// export const questionDisplay = content => {
+//   return (<div>{content.question}</div>)
+
 
 // export const displaySuggestions = (restaurants, name) => {
 //   const suggested = restaurants.find( rest => rest.restaurant === name )
 //   const index = restaurants.indexOf( name )
 //   restaurants.splice(index, 1)
+// }
+
+
+// export const questionDisplay = question => {
+//
+//   switch (question.answer) {
+//     case 'True':
+//       return (
+//         <div>
+//           <input type="radio" value={question.answer} />
+//           <input type="radio" value='False' />
+//         </div>
+//       )
+//     case 'False':
+//       return (
+//         <div>
+//           <input type="radio" value={question.answer} />
+//           <input type="radio" value='False' />
+//         </div>
+//       )
+//     default:
+//       const multiple = question.other.push(question.answer)
+//       return (
+//         <div>
+//           <input type="radio" value={multiple[0]} />{multiple[0]}
+//           <input type="radio" value={multiple[1]} />{multiple[1]}
+//           <input type="radio" value={multiple[2]} />{multiple[2]}
+//           <input type="radio" value={multiple[3]} />{multiple[3]}
+//         </div>
+//       )
+//   }
 // }

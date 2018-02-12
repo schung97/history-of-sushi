@@ -3,7 +3,7 @@ import reduxThunk from 'redux-thunk';
 import auth from './_reducers/AuthReducer';
 import json from './_reducers/JsonReducer';
 import restaruant from './_reducers/RestaurantReducer';
-import question from './_reducers/QuestionReducer';
+// import question from './_reducers/QuestionReducer';
 import content from './_reducers/ContentReducer';
 // import user from './_reducers/UserReducer';
 
@@ -12,7 +12,7 @@ const reducers = combineReducers({
   json,
   restaruant,
   content,
-  question,
+  // question,
   // user
 });
 
