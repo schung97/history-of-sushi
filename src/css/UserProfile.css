@@ -1,38 +1,40 @@
 
-
-.user-profile div {
-  display: inline-block;
-  vertical-align: top
+#right {
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
 }
 
-
 .user-info {
-  border: 2px solid;
+  border: 4px solid;
   width: 300px;
 }
 
-.user-info ul li {
+.user-rank li {
   list-style-type: none;
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
-details summary::-webkit-details-marker { 
-  display:none;
-}
-
-.user-profile .suggested {
-  border: 2px solid;
-
-}
-
-.user-profile .favorited {
-  border: 2px solid;
-}
 
 .user-profile .extra {
   border: 2px solid;
+}
+
+.user-profile div {
+    float: left;
+    padding: 10px;
+}
+
+.user-info {
+    width: 50%;
+}
+
+.user-profile:after {
+  content: "";
+  display: table;
+  clear: both;
 }

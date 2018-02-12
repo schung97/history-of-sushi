@@ -94,3 +94,9 @@ export const randomlySelectOne = content => {
 export const questionDisplay = content => {
   return (<div>{content.question}</div>)
 }
+
+export const displaySuggestions = (restaurants, name) => {
+  const suggested = restaurants.find( rest => rest.restaurant === name )
+  const index = restaurants.indexOf( name )
+  restaurants.splice(index, 1)
+}

@@ -1,11 +1,4 @@
 
-//  *** reducer  *** //
-// const initialState = {
-//   categoryName: '',
-//   facts: [],
-//   questions:[]
-// }
-
 const content = (state = { current: []}, action) => {
   switch (action.type) {
     case "SET_CONTENT_BY_RANK":

@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import FavoritedShow from './FavoritedShow';
+
+// ** files ** //
 import FavoritedList from './FavoritedList';
 import { bindActionCreators } from 'redux';
 import { showCurrentFav } from '../../_actions/PageAction'
+import IsAuthenticated from '../../IsAuthenticated';
+import '../../css/DropdownBar.css';
 
 class Favorited extends React.Component {
-  // { this.props.favorites.map( (restaurant, i) => (<li key={i} onClick={() => this.handleClick(restaurant.restaurant)}>{restaurant.restaurant}</li>) ) }
 
-  handleClick = restaurant => {
-    console.log(restaurant)
+  handleClick = (restaurant, history) => {
     this.props.showCurrentFav(restaurant, this.props.favorites)
+    history.push(`/favorites`)
   }
 
   render () {
@@ -20,12 +21,8 @@ class Favorited extends React.Component {
     } else {
       return (
         <div className="favorited">
-          <details>
-            <summary>Favorited Restaurants</summary>
-              <ul>
-                <FavoritedList restaurants={this.props.favorites} handleClick={this.handleClick}/>
-              </ul>
-          </details>
+          <button className="drop-button">Favorited Restaurants</button>
+          <FavoritedList restaurants={this.props.favorites} handleClick={this.handleClick}/>
         </div>
       )
     }
@@ -39,4 +36,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ showCurrentFav }, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Favorited);
+export default IsAuthenticated(connect(mapStateToProps, mapDispatchToProps)(Favorited));

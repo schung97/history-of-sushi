@@ -1,36 +1,49 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SuggestedShow from './SuggestedShow';
-// import { bindActionCreators } from 'redux';
-//
+import { bindActionCreators } from 'redux';
+import { showCurrentSuggestion } from '../../_actions/PageAction'
+import IsAuthenticated from '../../IsAuthenticated';
 
-const Suggested = (props) => {
-console.log('suggested', props)
-  if ( props.suggestions === undefined ) {
-    return ( <SuggestedShow restaruant={"hi im here because of undefined"}/> )
-  } else {
-    return (
-      <div className="suggested">
-        <details>
-          <summary>Suggested Restaurants</summary>
-            { props.suggestions.map( (restaurant, i) => <SuggestedShow key={i} restaurant={restaurant}/>) }
-        </details>
-      </div>
-    )
+// ** files ** //
+// import SuggestedShow from './SuggestedShow';
+import SuggestedList from './SuggestedList';
+import '../../css/DropdownBar.css';
+
+
+class Suggested extends React.Component {
+
+  handleLike = (restaurant, history) => {
+    // this.props.createFavorite()
+    //this.props.
   }
+
+  handleClick = (restaurant, history) => {
+    this.props.showCurrentSuggestion(restaurant, this.props.suggestions)
+    history.push(`/suggestions`)
+  }
+
+  render () {
+
+    if ( this.props.suggestions === undefined ) {
+      return ( <SuggestedList restaurants={"hi im here because of undefined"}/> )
+    } else {
+      return (
+        <div className="suggested">
+          <button className="drop-button">Suggested Restaurants</button>
+            <SuggestedList restaurants={this.props.suggestions} handleClick={this.handleClick}/>
+        </div>
+      )
+    }
+  }
+
 }
-
-
-// export default Suggested;
-
 
 const mapStateToProps = state => {
   return { suggestions: state.user.suggestions }
 }
-// const mapDispatchToProps = dispatch => {
-//   return bindActionCreators({ makeNewUser }, dispatch);
-// }
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ showCurrentSuggestion }, dispatch);
+}
 
 
-
-export default connect(mapStateToProps)(Suggested);
+export default IsAuthenticated(connect(mapStateToProps, mapDispatchToProps)(Suggested));

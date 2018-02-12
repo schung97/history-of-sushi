@@ -10,6 +10,7 @@ import UserPageNavBar from './_protected/presentational/UserPageNavBar';
 import UserProfile from './_protected/presentational/UserProfile';
 import UserSushiRank from './_protected/presentational/UserSushiRank';
 import FavoritedShow from './_protected/presentational/FavoritedShow';
+import SuggestedShow from './_protected/presentational/SuggestedShow';
 
 
 //** switch back if it becomes stateful **//
@@ -34,13 +35,23 @@ class App extends React.Component {
     this.props.getRestaurants();
   }
 
+  // shouldComponentUpdate(prevProp, nextState) {
+  //   return true
+  // }
+  //
+  // componentWillUpdate(prevProp, nextState) {
+  //
+  // }
+
+  handleChange
+
   render() {
     console.log('Is User Logged In?', this.props.loggedIn)
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;
+    // const showFavPage = Object.keys(this.props.showPage.favorited).length !== 0
 
     if (!this.props.loading1 && !this.props.loading2) {
-
       return (
           <div className="app">
             <Header/>
@@ -57,8 +68,8 @@ class App extends React.Component {
                 <Route exact path="/profile" component={UserProfile} />
                 <Route exact path="/sushi-rank" component={UserSushiRank}/>
                 <Route exact path="/sushi-knowledge" component={Content}/>
-                <Route exact path={`/favorites/${this.props.showFavPage}`} component={FavoritedShow}/>
-
+                <Route exact path="/favorites" component={FavoritedShow} />
+                <Route exact path="/suggestions/:restaur" component={SuggestedShow} />
               </Switch>
             </div>
 
@@ -85,7 +96,7 @@ const mapStateToProps = state => {
     userRank: state.auth.currentUser.knowledge,
     loading1: state.json.loading,
     loading2: state.restaruant.loading,
-    showFavPage: state.page.show.favorited.id
+    showPage: state.page.show
   }
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Route, Switch, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 const FavoritedList = (props) => {
-  const restaurant = props.restaurants.map((restaurant, i) => (<li onClick={() => props.handleClick(restaurant.restaurant)} key={i}>{restaurant.restaurant}</li>))
-  return ( <ul>{restaurant}</ul> )
+  const restaurant = props.restaurants.map((restaurant, i) => {
+    return (<li onClick={() => props.handleClick(restaurant.restaurant, props.history)} key={i}>{restaurant.restaurant}</li>)
+  } )
+  return ( <div className="dropdown-content">{restaurant}</div> )
 }
 
-export default FavoritedList;
+export default withRouter(FavoritedList);

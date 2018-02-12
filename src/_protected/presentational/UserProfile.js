@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Suggested from '../presentational/Suggested';
-import Favorited from '../presentational/Favorited';
-import ExtraStuff from '../presentational/ExtraStuff';
+import Suggested from './Suggested';
+import Favorited from './Favorited';
+import ExtraStuff from './ExtraStuff';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Right from 'react-icons/lib/fa/angle-right';
@@ -29,12 +29,12 @@ const UserProfile = (props) => {
         }
       {lockByRank(props.user.knowledge)}
     </div>
-
+    
     <Suggested />
     <Favorited />
     <ExtraStuff />
 
-    <Link to="/sushi-rank"><h2><Right /></h2></Link>
+    <Link to="/sushi-rank" id="right"><Right size={48}/></Link>
 </div>
   )
 }

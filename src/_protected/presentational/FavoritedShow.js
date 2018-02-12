@@ -1,20 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import IsAuthenticated from '../../IsAuthenticated';
 // import { bindActionCreators } from 'redux';
 //
 
 const FavoritedShow = (props) => {
-  return (
-    <div>
-      <img src={`${props.photos[0]}`} alt={`${props.restaurant}pic1`}/>
-      <dl>{ props.restaurant }</dl>
-      <dl>{ props.rating }</dl>
-      <dl>{ props.address }</dl>
-      <dl>{ props.phone }</dl>
-      <dl>{ props.review_count }</dl>
-      <dl>{ props.url }</dl>
-    </div>
-  )
+console.log('fav', props)
+    if (props.page === undefined) {
+      return (<div> favorited show</div>)
+    } else {
+      return (
+        <div>
+          <img src={`${props.page.photos[0]}`} alt={`${props.page.restaurant}pic1`}/>
+          <dl>{ props.page.restaurant }</dl>
+          <dl>{ props.page.price }</dl>
+          <dl>{ props.page.address }</dl>
+          <dl>{ props.page.phone }</dl>
+          <dl>{ props.page.review_count }</dl>
+          <dl>{ props.page.url }</dl>
+        </div>
+      )
+    }
+
 }
 
 
@@ -26,4 +33,4 @@ const mapStateToProps = state => {
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);
 // }
-export default FavoritedShow;
+export default IsAuthenticated(connect(mapStateToProps)(FavoritedShow));

@@ -1,26 +1,35 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import IsAuthenticated from '../../IsAuthenticated';
 // import { bindActionCreators } from 'redux';
-//
 
 const SuggestedShow = (props) => {
-  return (
-    <details>
-      <summary><h4>{ props.restaurant.restaurant }</h4></summary>
-        <dl>Rating: { props.restaurant.rating }</dl>
-        <dl>Reviews: { props.restaurant.review_count }</dl>
-        <dl>Address: { props.restaurant.address }</dl>
-    </details>
-  )
+console.log('suggest', props)
+    if (props.page === undefined) {
+      return (<div> Suggestions</div>)
+    } else {
+      return (
+        <div>
+          <img src={`${props.page.photos[0]}`} alt={`${props.page.restaurant}pic1`}/>
+          <dl>{ props.page.restaurant }</dl>
+          <dl>{ props.page.rating }</dl>
+          <dl>{ props.page.address }</dl>
+          <dl>{ props.page.phone }</dl>
+          <dl>{ props.page.review_count }</dl>
+          <dl>{ props.page.url }</dl>
+        </div>
+      )
+    }
+
 }
 
 
 
 
-// const mapStateToProps = state => {
-//   return { suggestions: state.content.suggestions }
-// }
+const mapStateToProps = state => {
+  return { page: state.page.show.suggested }
+}
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({ makeNewUser }, dispatch);
 // }
-export default SuggestedShow;
+export default IsAuthenticated(connect(mapStateToProps)(SuggestedShow));
