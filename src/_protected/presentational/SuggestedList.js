@@ -5,6 +5,8 @@ const link = {
   width: '200px',
   height: 'auto'
 }
+
+
 //withRouter to pass prop.history
 const SuggestedList = (props) => {
   const restaurants = props.restaurants.map((restaurant, i) => {

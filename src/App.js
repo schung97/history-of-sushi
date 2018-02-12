@@ -27,7 +27,7 @@ import Footer from './_public/presentational/Footer';
 
 import './css/App.css';
 import './css/Main.css';
-// <Route exact path={`${this.props.userID}/`} component={FavoritedShow}/>
+
 class App extends React.Component {
 
   componentDidMount() {
@@ -43,13 +43,13 @@ class App extends React.Component {
   //
   // }
 
-  handleChange
 
   render() {
     console.log('Is User Logged In?', this.props.loggedIn)
+    console.log('checking prop for prev', this.props)
+
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;
-    // const showFavPage = Object.keys(this.props.showPage.favorited).length !== 0
 
     if (!this.props.loading1 && !this.props.loading2) {
       return (
@@ -89,14 +89,13 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, prevProp) => {
 
   return {
     loggedIn: state.auth.loggedIn ,
     userRank: state.auth.currentUser.knowledge,
     loading1: state.json.loading,
     loading2: state.restaruant.loading,
-    showPage: state.page.show
   }
 }
 

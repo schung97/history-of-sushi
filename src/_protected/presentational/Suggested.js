@@ -1,20 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { showCurrentSuggestion } from '../../_actions/PageAction'
-import IsAuthenticated from '../../IsAuthenticated';
+// import { bindActionCreators } from 'redux';
 
 // ** files ** //
 import SuggestedList from './SuggestedList';
+import IsAuthenticated from '../../IsAuthenticated';
 import '../../css/DropdownBar.css';
 
 
 class Suggested extends React.Component {
-
-  handleLike = (restaurant, history) => {
-    // this.props.createFavorite()
-    //this.props.
-  }
 
   render () {
 
@@ -33,11 +27,7 @@ class Suggested extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { suggestions: state.user.suggestions }
-}
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ showCurrentSuggestion }, dispatch);
+  return { suggestions: state.auth.currentUser.suggestions }
 }
 
-
-export default IsAuthenticated(connect(mapStateToProps, mapDispatchToProps)(Suggested));
+export default IsAuthenticated(connect(mapStateToProps)(Suggested));

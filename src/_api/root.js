@@ -30,5 +30,24 @@ const newUser = (fields) => {
 
 
 
+// ** methods related to user's restaurants   **//
+const createFavorite = (fields) => {
+  return fetch('http://localhost:3000/api/v1/favorites', {
+    method: 'POST',
+    body: JSON.stringify(fields),
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  }).then(response => response.json())
+}
+
+const deleteFavorite = id => {
+  return fetch(`http://localhost:3000/api/v1/favorites/${id}`, { method: 'DELETE'})
+    .then(response => response.json())
+}
+
+
+
  // ** export
-export const Adapter = { getUserContents, getAllContents, newUser , getRestaurants};
+export const Adapter = { getUserContents, getAllContents, newUser , getRestaurants, createFavorite, deleteFavorite };

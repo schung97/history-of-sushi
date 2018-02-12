@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 // ** files ** //
 import FavoritedList from './FavoritedList';
-import { bindActionCreators } from 'redux';
-import { showCurrentFav } from '../../_actions/PageAction'
 import IsAuthenticated from '../../IsAuthenticated';
 import '../../css/DropdownBar.css';
 
@@ -26,9 +25,7 @@ class Favorited extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { favorites: state.user.favorites }
+  return { favorites: state.auth.currentUser.favorites }
 }
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ showCurrentFav }, dispatch);
-}
-export default IsAuthenticated(connect(mapStateToProps, mapDispatchToProps)(Favorited));
+
+export default IsAuthenticated(connect(mapStateToProps)(Favorited));

@@ -44,3 +44,26 @@ export const logoutUser = history => {
   history.push('/signed-out');
   return { type: 'LOGOUT_USER' };
 };
+
+
+// ***** TODO everything below move to another file** later ** //
+///// ***** new favorite maker
+export const createFavoriteFromSuggestions = (user_id, restaurant_id, suggestion_id) => {
+  return dispatch => {
+    Adapter.createFavorite({ user_id, restaurant_id, suggestion_id }).then( user => {
+      const favorites = user.favorites
+      const suggestions = user.suggestions
+      dispatch({ type: "SET_CURRENT_USER", favorites, suggestions })
+    })
+  }
+}
+///// ***** delete restaurant from fav
+export const deleteFavorite = id => {
+  return dispatch => {
+    Adapter.deleteFavorite(id).then( user => {
+      const favorites = user.favorites
+      const suggestions = user.suggestions
+      dispatch({ type: "SET_CURRENT_USER", favorites, suggestions })
+    })
+  }
+}

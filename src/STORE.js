@@ -5,8 +5,7 @@ import json from './_reducers/JsonReducer';
 import restaruant from './_reducers/RestaurantReducer';
 import question from './_reducers/QuestionReducer';
 import content from './_reducers/ContentReducer';
-import user from './_reducers/UserReducer';
-import page from './_reducers/PageReducer';
+// import user from './_reducers/UserReducer';
 
 const reducers = combineReducers({
   auth,
@@ -14,8 +13,7 @@ const reducers = combineReducers({
   restaruant,
   content,
   question,
-  user,
-  page
+  // user
 });
 
 
