@@ -6,8 +6,8 @@ const auth = (state = defaultState, action) => {
       return {...state, loading: true}
     case "SET_CURRENT_USER":
       return {...state, currentUser: action.user, loggedIn: true }
-    case "LOGOUT_USER":
-      return { currentUser: {}, loggedIn: false};
+    case "LOGOUT_USER":  
+      return { currentUser: {}, loggedOutloggedIn: false};
     case "ERROR":
       return { ...state, error: action.error };
     default:

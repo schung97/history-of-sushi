@@ -1,6 +1,7 @@
 const API_ROOT = 'http://localhost:3000/api/v1';
 
 // ************ Rails API //************ //
+
 const getUserContents = (id) => {
   return fetch(`${API_ROOT}/users/${id}`).then(resp => resp.json());
 }
@@ -8,6 +9,11 @@ const getUserContents = (id) => {
 // ** getting  all contents by categories **//
 const getAllContents = () => {
   return fetch(`${API_ROOT}/categories`).then(resp => resp.json())
+}
+
+// ** getting  all restaruants **//
+const getRestaurants = () => {
+  return fetch(`${API_ROOT}/restaurants`).then(resp => resp.json())
 }
 
 // ** making new user  **//
@@ -22,4 +28,7 @@ const newUser = (fields) => {
   }).then(response => response.json())
 }
 
-export const Adapter = { getUserContents, getAllContents, newUser};
+
+
+ // ** export
+export const Adapter = { getUserContents, getAllContents, newUser , getRestaurants};

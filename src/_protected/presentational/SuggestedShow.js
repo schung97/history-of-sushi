@@ -5,9 +5,12 @@ import React from 'react';
 
 const SuggestedShow = (props) => {
   return (
-    <div className="suggested-show">
-      <li>{ props.restaurant }</li>
-    </div>
+    <details>
+      <summary><h4>{ props.restaurant.restaurant }</h4></summary>
+        <dl>Rating: { props.restaurant.rating }</dl>
+        <dl>Reviews: { props.restaurant.review_count }</dl>
+        <dl>Address: { props.restaurant.address }</dl>
+    </details>
   )
 }
 

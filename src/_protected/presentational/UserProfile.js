@@ -10,6 +10,9 @@ import IsAuthenticated from '../../IsAuthenticated';
 // import { bindActionCreators } from 'redux';
 import '../../css/UserProfile.css';
 
+//helper methods
+import { lockByRank } from '../helpermethods';
+
 const UserProfile = (props) => {
 
   return (
@@ -24,18 +27,13 @@ const UserProfile = (props) => {
                   <dl>{props.user.knowledge}</dl>
                 </ul> )
         }
-      <ul className="user-rank">
-        <li>Beginning</li>
-        <li>Rise of Sushi</li>
-        <li>Modern Evolution</li>
-        <li>Type</li>
-        <li>Etiquette</li>
-        <li>Fun Fact</li>
-      </ul>
+      {lockByRank(props.user.knowledge)}
     </div>
+
     <Suggested />
     <Favorited />
     <ExtraStuff />
+
     <Link to="/sushi-rank"><h2><Right /></h2></Link>
 </div>
   )

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
 import '../../css/UserPageNavBar.css';
 
-const UserPageNavBar = () => {
+const UserPageNavBar = (props) => {
   return (
     <nav id="user-page-nav">
       <Link to="/profile"><li>PROFILE</li></Link>

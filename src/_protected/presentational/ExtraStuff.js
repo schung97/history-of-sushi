@@ -2,9 +2,9 @@ import React from 'react';
 import { t1 } from '../../text/Extra';
 const ExtraStuff = () => {
   return (
-    <section>
+    <div className="extra">
       {t1}
-    </section>
+    </div>
   )
 }
 

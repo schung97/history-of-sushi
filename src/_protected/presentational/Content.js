@@ -1,84 +1,50 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import ContentInfo from '../presentational/ContentInfo';
+// import { Link } from 'react-router-dom';
+// import ContentInfo from '../presentational/ContentInfo';
 import IsAuthenticated from '../../IsAuthenticated';
 import { setCurrentQuestion } from '../../_actions/QuestionAction';
 import { setContentByRank } from '../../_actions/ContentAction';
 import { bindActionCreators } from 'redux';
-import ContentDisplay from './ContentDisplay';
+// import ContentDisplay from './ContentDisplay';
 
 
-
-//  *** helper methods  *** //
-const findContentByRank = (rank, categories) =>  {
-  switch (rank) {
-    case "Amateur":
-      return categories[0];
-    case "Basic":
-      return categories[1];
-    case "Above-Average":
-      return categories[2];
-    case "Show-off":
-      return categories[3];
-    case "Appreciation":
-      return categories[4];
-    default:
-      return categories[5]
-  }
-}
-
-const randomlyDisplay = (content, key) => {
-  const randomly = content.sort(() => (.5 - Math.random()))
-  const divs = randomly.map( (f, i) => (<div key={i}>{f[`${key}`]}</div>))
-  return divs;
-}
-
-
-const randomlySelectOne = content => {
-  const randomIndex = Math.floor(Math.random() * content.length )
-  return content[randomIndex]
-}
-
-///-TODO-----------------edit display later----------------//
+//import helper methods
+import { findContentByRank, randomlySort, randomlySelectOne } from '../helpermethods';
 
 
 class Content extends React.Component {
 
-
-
-
-  render() {
-
-  console.log('content start')
-
-//-------------- all working correctly  --------------//
-
+  componentDidMount() {
     const found = findContentByRank(this.props.userRank, this.props.contents)
-    const fact_divs = randomlyDisplay(found.facts, 'fact') // might not need?
+    const randomlySorted = randomlySort(found.facts, 'fact')
     const questions = found.questions
-
     const randomQuestion = randomlySelectOne(questions)
-    console.log('random question', randomQuestion)
 
-    //*** setting state ***//
-    this.props.setContentByRank(found.facts)
+    this.props.setContentByRank(randomlySorted)
     this.props.setCurrentQuestion(randomQuestion)
-//-------------- all working correctly  --------------//
+  }
 
 
-  console.log('content end')
 
+
+render() {
+
+  const facts = this.props.currentContents.map( (content, i) => (<li key={i}>{content.fact}</li>))
 
     return (
       <div className="sushi-knowledge-contents">
       FACTS_____
-      {fact_divs}
-      QUESTION IS___ {randomQuestion.question}
-      ANSWER IS___ {randomQuestion.answer}
+      {facts}
+
+      <div>
+      QUESTION _ DISPLAY
+      {this.props.currentQuestion.question}
+      ANSWER IS___ {this.props.currentQuestion.answer}
+      </div>
+
       </div>
     )
-
   }
 
 }
@@ -89,7 +55,9 @@ const mapStateToProps = state => {
   return {
     contents: state.json.contents,
     userID: state.auth.currentUser.id,
-    userRank: state.auth.currentUser.knowledge
+    userRank: state.auth.currentUser.knowledge,
+    currentContents: state.content.current,
+    currentQuestion: state.question.currentQuestion
   }
 }
 

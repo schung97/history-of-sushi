@@ -1,8 +1,38 @@
 
-.user-info {
-  display: block;
+
+.user-profile div {
+  display: inline-block;
+  vertical-align: top
 }
+
+
+.user-info {
+  border: 2px solid;
+  width: 300px;
+}
+
+.user-info ul li {
+  list-style-type: none;
+}
+
 img {
-  width: auto;
-  height: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+details summary::-webkit-details-marker { 
+  display:none;
+}
+
+.user-profile .suggested {
+  border: 2px solid;
+
+}
+
+.user-profile .favorited {
+  border: 2px solid;
+}
+
+.user-profile .extra {
+  border: 2px solid;
 }

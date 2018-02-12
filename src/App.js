@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getContentsAndQuestionsByCategory } from './_actions/JsonAction';
+import { getRestaurants } from './_actions/RestaurantAction';
 
 import NavBar from './_protected/presentational/NavBar';
 import UserPageNavBar from './_protected/presentational/UserPageNavBar';
 import UserProfile from './_protected/presentational/UserProfile';
 import UserSushiRank from './_protected/presentational/UserSushiRank';
+import FavoritedShow from './_protected/presentational/FavoritedShow';
+
+
 //** switch back if it becomes stateful **//
 // import Content from './_protected/component/Content';
 import Content from './_protected/presentational/Content';
-import ContentDisplay from './_protected/presentational/ContentDisplay';
+// import ContentDisplay from './_protected/presentational/ContentDisplay';
 
 import SignUp from './_public/component/SignUp';
 import SignIn from './_public/component/SignIn';
@@ -22,12 +26,12 @@ import Footer from './_public/presentational/Footer';
 
 import './css/App.css';
 import './css/Main.css';
-
+// <Route exact path={`${this.props.userID}/`} component={FavoritedShow}/>
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.getContentsAndQuestionsByCategory()
-    // this.props.getUserContents(this.props.userID);
+    this.props.getContentsAndQuestionsByCategory();
+    this.props.getRestaurants();
   }
 
   render() {
@@ -35,7 +39,7 @@ class App extends React.Component {
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;
 
-    if (!this.props.loading) {
+    if (!this.props.loading1 && !this.props.loading2) {
 
       return (
           <div className="app">
@@ -43,7 +47,7 @@ class App extends React.Component {
 
             <div className="main">
                 { showNavBar ? (  <NavBar {...this.props}/> ) : null }
-                { showUserNavBar ? ( <UserPageNavBar /> ) :null }
+                { showUserNavBar ? ( <UserPageNavBar username={this.props.username}/> ) :null }
 
               <Switch>
                 <Route exact path="/" component={Home}/>
@@ -53,6 +57,8 @@ class App extends React.Component {
                 <Route exact path="/profile" component={UserProfile} />
                 <Route exact path="/sushi-rank" component={UserSushiRank}/>
                 <Route exact path="/sushi-knowledge" component={Content}/>
+                <Route exact path={`/favorites/${this.props.showFavPage}`} component={FavoritedShow}/>
+
               </Switch>
             </div>
 
@@ -77,12 +83,14 @@ const mapStateToProps = state => {
   return {
     loggedIn: state.auth.loggedIn ,
     userRank: state.auth.currentUser.knowledge,
-    loading: state.json.loading
+    loading1: state.json.loading,
+    loading2: state.restaruant.loading,
+    showFavPage: state.page.show.favorited.id
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ getContentsAndQuestionsByCategory }, dispatch);
+  return bindActionCreators({ getContentsAndQuestionsByCategory, getRestaurants }, dispatch);
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

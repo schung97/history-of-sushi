@@ -5,7 +5,6 @@
 // 1. ** login with username/pwd and get token
 // return value => json: { user, jwt }
 const login = fields => {
-  console.log('login', fields)
   return fetch('http://localhost:3000/api/v1/login', {
     method: 'POST',
     headers: {

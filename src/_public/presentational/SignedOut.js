@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../css/SignedOut.css';
 
-const SignedOut = (props) => {
+const SignedOut = () => {
   return (
-    <div>
-      <ul>
-        <li>firstname + lastname</li>
-        <li>Sushi Knowledge:_____</li>
-      </ul>
+    <div className="signout">
       <Link to="/signin"><button>Sign Back In?</button></Link>
     </div>
   )

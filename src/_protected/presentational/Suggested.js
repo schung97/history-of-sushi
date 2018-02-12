@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SuggestedShow from './SuggestedShow';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 //
 
 const Suggested = (props) => {
@@ -13,7 +13,7 @@ console.log('suggested', props)
       <div className="suggested">
         <details>
           <summary>Suggested Restaurants</summary>
-            { props.suggestions.map( (s, i) => <SuggestedShow key={i} restaurant={s.restaurant}/>) }
+            { props.suggestions.map( (restaurant, i) => <SuggestedShow key={i} restaurant={restaurant}/>) }
         </details>
       </div>
     )

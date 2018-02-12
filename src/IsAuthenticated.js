@@ -18,7 +18,7 @@ const IsAuthenticated = ComposedComponent => {
       if (localStorage.getItem('token') && !this.props.userID) {
         this.props.getCurrentUser()
       } else {
-        this.setState({ authCompleted: true }, console.log('componentDidMount false'));
+        this.setState({ authCompleted: true });
       }
     }
 
@@ -31,7 +31,7 @@ const IsAuthenticated = ComposedComponent => {
     render() {
 
      if (this.state.authCompleted) {
-       return this.props.loggedIn ? ( <ComposedComponent {...this.props}/> ) : ( <Redirect to="/" /> );
+       return this.props.loggedIn ? ( <ComposedComponent /> ) : ( <Redirect to="/" /> );
      } else {
        return null;
      }

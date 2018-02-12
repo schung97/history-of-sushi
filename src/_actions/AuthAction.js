@@ -1,6 +1,6 @@
 import { Auth } from '../_api/auth';
 import { Adapter } from '../_api/root';
-import { getUserContents } from './JsonAction';
+// import { getUserContents } from './JsonAction';
 
 
 //** Sign Up **//
@@ -9,7 +9,7 @@ export const makeNewUser = (formdata, history) => dispatch => {
     console.log('from auth action', user)
     localStorage.setItem('token', user.jwt)
     dispatch({ type: 'SET_CURRENT_USER', user });
-    history.push('/profile');
+    history.push("/profile");
   }).catch(error => dispatch({ error: error.message }))
 }
 
@@ -22,8 +22,7 @@ export const loginUser = (formdata, history) => dispatch => {
   Auth.login(formdata).then( user => {
     localStorage.setItem('token', user.jwt);
     dispatch({ type: 'SET_CURRENT_USER', user: user.user});
-    // dispatch
-    history.push('/profile');
+    history.push("/profile");
   }).catch(error => dispatch( { type: "ERROR", error: error.message } ))
 };
 
