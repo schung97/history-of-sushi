@@ -32,13 +32,23 @@ class Content extends React.Component {
     const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
     const rankNum = userRankByNum(this.props.user.knowledge)
     const newRank = ranks[(rankNum + 1) % (ranks.length)];
-    newRank >= 4 ? this.props.history.push('/profile') : this.props.updateUser(this.props.user, newRank, this.props.history)
-    // return newRank;
+    // newRank >= 4 ? this.props.history.push('/profile') : this.props.updateUser(this.props.user, newRank, this.props.history)
+    newRank >= 4 ? this.props.history.push('/profile') : this.createSuggestions(newRank)
+    return newRank;
+  }
+
+  createSuggestions = (newRank) => {
+    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
+    const found = this.props.restaurants.filter( restaurant => restaurant.rank === newRank)
+    const suggestions = found.map( sugg => sugg.id)
+    // debugger
+    this.props.updateUser(this.props.user, newRank, this.props.history, suggestions)
   }
 
   render() {
     // console.log('content-users rank----', this.props.user.knowledge)
     // console.log('contents-category---=-', this.props.content.category)
+    console.log('contents-prosp restaurant---=-', this.props.restaurants)
 
     const facts = this.props.content.facts.map( (content, i) => {
       return (
@@ -65,9 +75,11 @@ const mapStateToProps = (state, prevProp) => {
   // const found = state.json.contents.filter( content => content.category === prevProp.match.params.category_name )
   // console.log('content---router-props--checking', prevProp.match.params.category_name)
   console.log('content---router-props--checking', prevProp)
+  console.log('content-restaruant--checking', state.restaurant.restaurants)
   return {
     content: findContentByRank(state.auth.currentUser.knowledge, state.json.contents),
     user: state.auth.currentUser,
+    restaurants: state.restaurant.restaurants
   }
 }
 

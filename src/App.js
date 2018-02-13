@@ -85,7 +85,7 @@ const mapStateToProps = (state, prevProp) => {
     loggedIn: state.auth.loggedIn ,
     userRank: state.auth.currentUser.knowledge,
     loading1: state.json.loading,
-    loading2: state.restaruant.loading,
+    loading2: state.restaurant.loading,
   }
 }
 

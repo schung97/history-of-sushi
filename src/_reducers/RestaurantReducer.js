@@ -1,5 +1,5 @@
 
-const restaruant = ( state = { restaurants: {}, loading: true }, action ) => {
+const restaurant = ( state = { restaurants: {}, loading: true }, action ) => {
   switch (action.type) {
     case "SET_RESTAURANTS":
       return {...state, restaurants: action.restaurants ,loading: action.loading}
@@ -9,4 +9,4 @@ const restaruant = ( state = { restaurants: {}, loading: true }, action ) => {
       return state;
   }
 }
-export default restaruant;
+export default restaurant;
