@@ -41,7 +41,6 @@ class Content extends React.Component {
     const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
     const found = this.props.restaurants.filter( restaurant => restaurant.rank === newRank)
     const suggestions = found.map( sugg => sugg.id)
-    // debugger
     this.props.updateUser(this.props.user, newRank, this.props.history, suggestions)
   }
 

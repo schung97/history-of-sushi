@@ -82,7 +82,6 @@ export const deleteFavorite = (id, history) => {
 
 export const updateUser = ( userContent, newRank, history, suggestions ) => {
   const user = Object.assign(userContent, {knowledge: `${newRank}`, suggestions: suggestions})
-  // debugger
   return dispatch => {
     Adapter.updateUser(user).then( user => {
       dispatch({ type: "SET_CURRENT_USER", user })
