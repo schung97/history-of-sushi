@@ -35,18 +35,8 @@ class App extends React.Component {
     this.props.getRestaurants();
   }
 
-  // shouldComponentUpdate(prevProp, nextState) {
-  //   return true
-  // }
-  //
-  // componentWillUpdate(prevProp, nextState) {
-  //
-  // }
-
-
   render() {
     console.log('Is User Logged In?', this.props.loggedIn)
-    console.log('checking prop for prev', this.props)
 
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;

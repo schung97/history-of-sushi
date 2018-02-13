@@ -11,9 +11,8 @@ import '../../css/DropdownBar.css';
 class Suggested extends React.Component {
 
   render () {
-
-    if ( this.props.suggestions === undefined ) {
-      return ( <SuggestedList restaurants={"hi im here because of undefined"}/> )
+    if ( !this.props.suggestions ) {
+      return ( <SuggestedList restaurants={[]}/> )
     } else {
       return (
         <div className="suggested">

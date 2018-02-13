@@ -8,13 +8,13 @@ import { deleteFavorite } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
  // ** TODO css butons later *** //
 const FavoritedShow = (props) => {
-
+console.log('favshow', props.history)
     if (!props.page) {
       return (<div> favorited show</div>)
     } else {
       return (
         <div>
-          <h1><Delete onClick={() => props.deleteFavorite(props.page.id, props.user.id)}/></h1>
+          <h1><Delete onClick={() => props.deleteFavorite(props.page.id, props.history)}/></h1>
           <img src={`${props.page.photos[0]}`} alt={`${props.page.restaurant}pic1`}/>
           <dl>{ props.page.restaurant }</dl>
           <dl>{ props.page.price }</dl>

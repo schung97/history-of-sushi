@@ -56,13 +56,25 @@ export const createFavoriteFromSuggestions = (user_id, restaurant_id, suggestion
     })
   }
 }
+
 ///// ***** delete restaurant from fav
-export const deleteFavorite = id => {
+export const deleteFavorite = (id, history) => {
   return dispatch => {
     Adapter.deleteFavorite(id).then( user => {
-      const favorites = user.favorites
-      const suggestions = user.suggestions
       dispatch({ type: "SET_CURRENT_USER", user })
+      history.push('/profile')
+    })
+  }
+}
+
+// *** update user ** //
+
+export const updateUser = ( userContent, newRank, history ) => {
+  const user = Object.assign(userContent, {knowledge: `${newRank}`})
+  return dispatch => {
+    Adapter.updateUser(user).then( user => {
+      dispatch({ type: "SET_CURRENT_USER", user })
+      history.push('/profile')
     })
   }
 }

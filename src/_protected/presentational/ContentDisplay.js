@@ -1,7 +1,7 @@
 
 import React from 'react'
-import IsAuthenticated from '../../IsAuthenticated';
-import { connect } from 'react-redux';
+// import IsAuthenticated from '../../IsAuthenticated';
+// import { connect } from 'react-redux';
 // import { questionDisplay } from '../helpermethods';
 // import { bindActionCreators } from 'redux';
 

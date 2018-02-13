@@ -10,7 +10,6 @@ class SignUp extends React.Component {
 
     this.state= {
       user: {
-        email: '',
         firstname: '',
         lastname: '',
         username: '',
@@ -34,7 +33,6 @@ class SignUp extends React.Component {
     console.log("from signup", this.props)
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <input type="text" name="email" placeholder="Email" value={this.state.user.email}/>
         <input type="text" name="firstname" placeholder="Firstname" value={this.state.user.firstname}/>
         <input type="text" name="lastname" placeholder="Lastname" value={this.state.user.lastname}/>
         <input type="text" name="username" placeholder="Username" value={this.state.user.username}/>

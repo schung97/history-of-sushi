@@ -4,32 +4,23 @@ import { withRouter } from 'react-router-dom';
 // import ContentInfo from '../presentational/ContentInfo';
 import IsAuthenticated from '../../IsAuthenticated';
 import { setCurrentQuestion } from '../../_actions/QuestionAction';
-import { setContentByRank } from '../../_actions/ContentAction';
+// import { setContentByRank } from '../../_actions/ContentAction';
+import { updateUser } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
 import ContentDisplay from './ContentDisplay';
 
 
 //import helper methods
 // import { findContentByRank, randomlySort, randomlySelectOne } from '../helpermethods';
-import { findContentByRank, randomlySort } from '../helpermethods';
+import { findContentByRank, userRankByNum } from '../helpermethods';
 
 
 class Content extends React.Component {
 
+
   constructor(props) {
     super(props);
-      const found = findContentByRank(this.props.userRank, this.props.contents)
-      const randomlySorted = randomlySort(found.facts)
-      const randomlySortedQuestions = randomlySort(found.questions)
-      this.props.setContentByRank(randomlySorted, randomlySortedQuestions)
 
-      this.state = {
-        facts: randomlySorted,
-        questions: randomlySortedQuestions,
-        index: 0,
-        numberOfQuestions: randomlySortedQuestions.length,
-        completed: false
-      }
   }
 
 
@@ -37,69 +28,49 @@ class Content extends React.Component {
     e.target.value
   }
 
-  handleSubmit = e => {
-    e.preventDefault()
+  moveUpARank = () => {
+    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
+    const rankNum = userRankByNum(this.props.user.knowledge)
+    const newRank = ranks[(rankNum + 1) % (ranks.length)];
+    newRank >= 4 ? this.props.history.push('/profile') : this.props.updateUser(this.props.user, newRank, this.props.history)
+    // return newRank;
   }
-  // const facts = this.props.currentContents.map( (content, i) => (<li key={i}>{content.fact}</li>))
-  render() {
-    const { facts, questions, index, numberOfQuestions, completed } = this.state
-    console.log('contents qusetionnaire', this.props)
-    console.log('contents qusetionnaire STATE', this.state)
 
+  render() {
+    console.log('content-users rank----', this.props.user.knowledge)
+    console.log('contents-category---=-', this.props.content)
+
+    const facts = this.props.content.facts.map( (content, i) => {
+      return (
+        <div key={i} className={`section-${i}`}>
+          <p> --------{i}-----{this.props.content.category}------- </p>
+          <p>{content.fact}</p>
+        </div>
+      )
+    })
 
       return (
         <div className="sushi-knowledge-contents">
-          Question...
-          {
-              completed ? ( <div>Completed!</div> )
-              :
-              ( <div>
-                { index < questions.length ?
-                  <ContentDisplay question={questions[index]} index={index} handleResponse={this.handleResponse} handleSubmit={this.handleSubmit}/>
-                  : ''
-                }
-                </div>
-              )
-          }
+          {facts}
+          <button onClick={ () => this.moveUpARank()}>Complete! Back to Profile</button>
         </div>
       )
   }
 }
-// ---- go back to this if it doesnt work out ---/
-// render() {
-// console.log('contents qusetionnaire', this.props)
-//   const facts = this.props.currentContents.map( (content, i) => (<li key={i}>{content.fact}</li>))
-//
-//     return (
-//       <div className="sushi-knowledge-contents">
-//       FACTS_____
-//       {facts}
-//
-//       <div>
-//       QUESTION _ DISPLAY
-//       {this.props.currentQuestion.question}
-//       ANSWER IS___ {this.props.currentQuestion.answer}
-//       </div>
-//
-//       </div>
-//     )
-//   }
 
 
 
 
 const mapStateToProps = state => {
+  // const found = state.json.contents.filter( content => content.category === state.content.category )
   return {
-    contents: state.json.contents,
-    userID: state.auth.currentUser.id,
-    userRank: state.auth.currentUser.knowledge,
-    // currentContents: state.content.current,
-    // currentQuestion: state.question.currentQuestion
+    content: findContentByRank(state.auth.currentUser.knowledge, state.json.contents),
+    user: state.auth.currentUser
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ setCurrentQuestion, setContentByRank }, dispatch);
+  return bindActionCreators({ updateUser }, dispatch);
 }
 
 export default IsAuthenticated(withRouter(connect(mapStateToProps, mapDispatchToProps)(Content)));

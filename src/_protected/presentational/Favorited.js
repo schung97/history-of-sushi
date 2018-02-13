@@ -10,8 +10,8 @@ import '../../css/DropdownBar.css';
 class Favorited extends React.Component {
 
   render () {
-    if ( this.props.favorites === undefined ) {
-      return ( <FavoritedList restaurants={"hi im here because of undefined"}/> )
+    if ( !this.props.favorites) {
+      return ( <FavoritedList restaurants={[]}/> )
     } else {
       return (
         <div className="favorited">

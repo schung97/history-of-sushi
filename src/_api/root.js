@@ -28,6 +28,17 @@ const newUser = (fields) => {
   }).then(response => response.json())
 }
 
+const updateUser = (user) => {
+  return fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  }).then(response => response.json())
+}
+
 
 
 // ** methods related to user's restaurants   **//
@@ -50,4 +61,4 @@ const deleteFavorite = id => {
 
 
  // ** export
-export const Adapter = { getUserContents, getAllContents, newUser , getRestaurants, createFavorite, deleteFavorite };
+export const Adapter = { getUserContents, getAllContents, newUser , getRestaurants, createFavorite, deleteFavorite, updateUser };
