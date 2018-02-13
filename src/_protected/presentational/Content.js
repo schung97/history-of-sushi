@@ -37,8 +37,8 @@ class Content extends React.Component {
   }
 
   render() {
-    console.log('content-users rank----', this.props.user.knowledge)
-    console.log('contents-category---=-', this.props.content)
+    // console.log('content-users rank----', this.props.user.knowledge)
+    // console.log('contents-category---=-', this.props.content.category)
 
     const facts = this.props.content.facts.map( (content, i) => {
       return (
@@ -61,15 +61,17 @@ class Content extends React.Component {
 
 
 
-const mapStateToProps = state => {
-  // const found = state.json.contents.filter( content => content.category === state.content.category )
+const mapStateToProps = (state, prevProp) => {
+  // const found = state.json.contents.filter( content => content.category === prevProp.match.params.category_name )
+  // console.log('content---router-props--checking', prevProp.match.params.category_name)
+  console.log('content---router-props--checking', prevProp)
   return {
     content: findContentByRank(state.auth.currentUser.knowledge, state.json.contents),
-    user: state.auth.currentUser
+    user: state.auth.currentUser,
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ updateUser }, dispatch);
 }
 

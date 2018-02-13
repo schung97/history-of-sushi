@@ -28,7 +28,7 @@ class UserProfile extends React.Component {
 
   handleRoute = (history) => {
     // this.props.setCurrentCategory(rank)
-    history.push('/sushi-knowledge')
+    history.push(`/sushi-knowledge`)
   }
 
   render() {
@@ -52,7 +52,7 @@ class UserProfile extends React.Component {
           }
 
           <div className="user-rank">
-            <button onClick={ () => this.handleRoute(this.props.history, 'Amateur')}>Beginning</button>
+            <button onClick={ () => this.handleRoute(this.props.history, 'Beginning')}>Beginning</button>
             <button disabled={!(this.props.user_rank > 0)} onClick={ () => this.handleRoute(this.props.history)}>Rise of Sushi</button>
             <button disabled={!(this.props.user_rank > 1)} onClick={ () => this.handleRoute(this.props.history)}>Type</button>
             <button disabled={!(this.props.user_rank > 2)} onClick={ () => this.handleRoute(this.props.history)}>Etiquette</button>
@@ -74,7 +74,7 @@ class UserProfile extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     user: state.auth.currentUser,
     funFacts: state.json.contents[3],
@@ -82,7 +82,7 @@ const mapStateToProps = state => {
    }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ setCurrentCategory }, dispatch);
 }
 

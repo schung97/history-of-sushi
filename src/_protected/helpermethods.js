@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const findContentByRank = (rank, categories) =>  {
+  // debugger
   switch (rank) {
     case "Amateur":
       return categories[0];
