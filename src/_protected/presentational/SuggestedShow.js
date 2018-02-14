@@ -4,11 +4,6 @@ import { withRouter } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
 import '../../css/SuggestionsShow.css';
 
-
-// uncomment this when i figure this out.
-// import { slideIndex, showSlides, currentSlide, plusSlides} from '../../styling';
-
-
 import Heart from 'react-icons/lib/ti/heart-outline';
 import { plusSlides } from '../../styling';
 import { createFavoriteFromSuggestions } from '../../_actions/AuthAction';
@@ -16,52 +11,23 @@ import { bindActionCreators } from 'redux';
 
 
 
-
-// const SuggestedShow = (props) => {
-//   // slideIndex;
-//   // showSlides(slideIndex)
-//     if (props.page === undefined) {
-//       return (<div> Suggestions</div>)
-//     } else {
-//       const photos = props.page.photos.map((photo, i) =>  {
-//         return (
-//           <div className="slide" key={i}>
-//             <img src={`${photo}`} alt={`${props.page.restaurant}pic${i}`} style={{width: '100%'}}/>
-//             <div className="image-number">{`${i + 1} / ${props.page.photos.length}`}</div>
-//           </div> )
-//       })
-//       return (
-//         <div className="slideshow">
-//           {photos}
-//           <dl>{ props.page.restaurant }</dl>
-//           <dl>{ props.page.rating }</dl>
-//           <dl>{ props.page.address }</dl>
-//           <dl>{ props.page.phone }</dl>
-//           <dl>{ props.page.review_count }</dl>
-//           <dl>{ props.page.url }</dl>
-//         </div>
-//       )
-//     }
-//
-// }
-
-// slideIndex;
-// showSlides(slideIndex)
-
 const SuggestedShow = (props ) => {
-  // slideIndex = 1;
-  // showSlides(slideIndex)
-  
+
+  let style;
     if (props.page === undefined) {
       return (<div> Suggestions</div>)
     } else {
       const photos = props.page.photos.map((photo, i) =>  {
+         style = {
+          display: `${i === 0 ? 'block' : 'none' }`
+        }
         return (
-          <div className="slide" key={i}>
+          <div className="slide" key={i} style={style}>
             <img src={`${photo}`} alt={`${props.page.restaurant}pic${i}`} style={{width: '100%'}}/>
             <div className="image-number">{`${i + 1} / ${props.page.photos.length}`}</div>
           </div>  )
       })
+
       return (
         <div className="slideshow">
           {photos}

@@ -82,7 +82,7 @@ export const updateUser = ( userContent, newRank, history, suggestions, prevUrl 
   return dispatch => {
     Adapter.updateUser(user).then( user => {
       dispatch({ type: "SET_CURRENT_USER", user })
-      history.push(`/${prevUrl}/suggestions`)
+      history.push(`/sushi-knowledge/${prevUrl}/suggestions`)
     })
   }
 }

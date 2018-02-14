@@ -1,16 +1,14 @@
-/*.suggested {
-    width: 25%;
-}
-
-.favorited {
-  width: 25%;
-}*/
-
-.favorited {
-  position: relative;
+.suggested {
+  width: 33.33%;
+  float: left;
   display: inline-block;
 }
 
+.favorited {
+  width: 33.33%;
+  float: left;
+  display: inline-block;
+}
 
 .drop-button {
   background-color: rgb(254, 204, 73);
@@ -22,14 +20,9 @@
   cursor: pointer;
 }
 
-.suggested {
-  position: relative;
-  display: inline-block;
-}
-
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: relative;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);

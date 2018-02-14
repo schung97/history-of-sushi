@@ -4,11 +4,12 @@ footer {
   border: 2px solid red;
 }
 
-footer li{
+footer li {
   list-style-type: none;
   padding: 10px;
 }
 
+/*
 footer li:first-child {
   font-size: 18px;;
 }
@@ -19,4 +20,4 @@ footer li:not(:first-child) {
 
 footer li:not(:first-child):hover {
   background-color: grey;
-}
+}*/

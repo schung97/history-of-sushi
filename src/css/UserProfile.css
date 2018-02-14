@@ -25,12 +25,14 @@ img {
 }
 
 .user-profile div {
-    float: left;
+    /*float: left;*/
     padding: 10px;
 }
 
 .user-info {
-    width: 50%;
+  width: 33.33%;
+  float: left;
+  display: inline-block;
 }
 
 .user-profile:after {

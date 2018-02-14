@@ -1,4 +1,4 @@
 const intro = "This is NYC's curated list of sushi restaurant. This place is for sushi lovers and soon to be sushi lovers. To enjoy sushi, you must know sushi.  Restaurants will be unlocked by your knowledge of sushi. Tests will be given to prove your knowledge of sushi. Each rank, will unlock more hidden gems in the city. Click 'Begin' to start and test alongside the history of sushi to unlock the secret society beyond NYC's sushi restaurant."
+const lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-
-export { intro };
+export { intro , lorem_ipsum};

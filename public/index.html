@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base href="/" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js">
+      var controller = new ScrollMagic.controller();
+      var scene = new ScrollMagic.Scene({
+        triggerElement: "#trigger1"
+      }).setTween("#animate1", 0.5, { backgroundColor: "green", scale: 2.5 }).addTo(controller)
+    </script>
+
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/

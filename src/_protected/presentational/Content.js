@@ -17,7 +17,7 @@ class Content extends React.Component {
 
 
   moveUpARank = () => {
-    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-Off', 'Appreciation'];
+    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
     if (this.props.user.knowledge !== ranks[ranks.length - 1]) {
       const rankNum = userRankByNum(this.props.user.knowledge);
       const newRank = ranks[(rankNum + 1) % (ranks.length)];
@@ -28,7 +28,7 @@ class Content extends React.Component {
   }
 
   createSuggestions = (newRank) => {
-    // const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-Off', 'Appreciation'];
+    // const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
     // const categories = ['Beginning', 'Rise of Sushi', 'Type', 'Etiquette'];
     const found = this.props.restaurants.filter( restaurant => restaurant.rank === newRank)
     const suggestions = found.map( sugg => sugg.id)

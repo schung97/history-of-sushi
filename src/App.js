@@ -81,8 +81,8 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = (state, prevProp) => {
-console.log('aapp', prevProp)
+const mapStateToProps = (state) => {
+// console.log('aapp', prevProp)
   return {
     loggedIn: state.auth.loggedIn ,
     userRank: state.auth.currentUser.knowledge,

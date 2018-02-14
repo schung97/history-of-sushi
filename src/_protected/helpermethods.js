@@ -8,7 +8,7 @@ export const findContentByRank = (rank, categories) =>  {
       return categories[1];
     case "Above-Average":
       return categories[2];
-    case "Show-Off":
+    case "Show-off":
       return categories[4];
     case "Appreciation":
       return categories[5];
@@ -31,7 +31,7 @@ export const randomlySelectOne = content => {
 
 
 export const userRankByNum = userRank => {
-  const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-Off', 'Appreciation'];
+  const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
   const rankNum = ranks.indexOf(userRank);
   return rankNum;
 }
