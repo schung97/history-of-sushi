@@ -6,7 +6,6 @@ import { Adapter } from '../_api/root';
 //** Sign Up **//
 export const makeNewUser = (formdata, history) => dispatch => {
   Adapter.newUser(formdata).then( user => {
-    console.log('from auth action', user)
     localStorage.setItem('token', user.jwt)
     dispatch({ type: 'SET_CURRENT_USER', user });
     history.push("/profile");
@@ -31,8 +30,6 @@ export const getCurrentUser = () => dispatch => {
   dispatch({ type: 'ASYNC_START' });
   Auth.getCurrentUser()
     .then( user => {
-      // debugger
-      // user.knowledge
       dispatch({ type: "SET_CURRENT_USER", user, loggedIn: true });
     })
     .catch(error => dispatch({ type: "ERROR", error: error.message }))
@@ -80,12 +77,12 @@ export const deleteFavorite = (id, history) => {
 //   }
 // }
 
-export const updateUser = ( userContent, newRank, history, suggestions ) => {
+export const updateUser = ( userContent, newRank, history, suggestions, prevUrl ) => {
   const user = Object.assign(userContent, {knowledge: `${newRank}`, suggestions: suggestions})
   return dispatch => {
     Adapter.updateUser(user).then( user => {
       dispatch({ type: "SET_CURRENT_USER", user })
-      history.push('/profile')
+      history.push(`/${prevUrl}/suggestions`)
     })
   }
 }

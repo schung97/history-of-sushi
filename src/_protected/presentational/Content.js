@@ -1,58 +1,47 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-// import ContentInfo from '../presentational/ContentInfo';
+import { withRouter, Link } from 'react-router-dom';
+
 import IsAuthenticated from '../../IsAuthenticated';
-import { setCurrentQuestion } from '../../_actions/QuestionAction';
-// import { setContentByRank } from '../../_actions/ContentAction';
+// import { setCurrentQuestion } from '../../_actions/QuestionAction';
+import { setNewSuggestions } from '../../_actions/RestaurantAction';
+
 import { updateUser } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
-import ContentDisplay from './ContentDisplay';
 
 
-//import helper methods
-// import { findContentByRank, randomlySort, randomlySelectOne } from '../helpermethods';
-import { findContentByRank, userRankByNum } from '../helpermethods';
+import { userRankByNum } from '../helpermethods';
 
 
 class Content extends React.Component {
 
 
-  constructor(props) {
-    super(props);
-
-  }
-
-
-  handleResponse = e => {
-    e.target.value
-  }
-
   moveUpARank = () => {
-    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
-    const rankNum = userRankByNum(this.props.user.knowledge)
-    const newRank = ranks[(rankNum + 1) % (ranks.length)];
-    // newRank >= 4 ? this.props.history.push('/profile') : this.props.updateUser(this.props.user, newRank, this.props.history)
-    newRank >= 4 ? this.props.history.push('/profile') : this.createSuggestions(newRank)
-    return newRank;
+    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-Off', 'Appreciation'];
+    if (this.props.user.knowledge !== ranks[ranks.length - 1]) {
+      const rankNum = userRankByNum(this.props.user.knowledge);
+      const newRank = ranks[(rankNum + 1) % (ranks.length)];
+      this.createSuggestions(newRank)
+    } else {
+      this.props.history.push(`/sushi-knowledge/${this.props.prevUrl}/suggestions`)
+    }
   }
 
   createSuggestions = (newRank) => {
-    const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
+    // const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-Off', 'Appreciation'];
+    // const categories = ['Beginning', 'Rise of Sushi', 'Type', 'Etiquette'];
     const found = this.props.restaurants.filter( restaurant => restaurant.rank === newRank)
     const suggestions = found.map( sugg => sugg.id)
-    this.props.updateUser(this.props.user, newRank, this.props.history, suggestions)
+    // this.props.setNewSuggestions(found)
+    this.props.updateUser(this.props.user, newRank, this.props.history, suggestions, this.props.prevUrl)
   }
 
   render() {
-    // console.log('content-users rank----', this.props.user.knowledge)
-    // console.log('contents-category---=-', this.props.content.category)
-    console.log('contents-prosp restaurant---=-', this.props.restaurants)
 
-    const facts = this.props.content.facts.map( (content, i) => {
+    const facts = this.props.content[0].facts.map( (content, i) => {
       return (
         <div key={i} className={`section-${i}`}>
-          <p> --------{i}-----{this.props.content.category}------- </p>
+          <p> --------{i}------------ </p>
           <p>{content.fact}</p>
         </div>
       )
@@ -61,7 +50,7 @@ class Content extends React.Component {
       return (
         <div className="sushi-knowledge-contents">
           {facts}
-          <button onClick={ () => this.moveUpARank()}>Complete! Back to Profile</button>
+          <Link to={`/sushi-knowledge/${this.props.prevUrl}/suggestions`}><button onClick={ () => this.moveUpARank()}>Complete! Back to Profile</button></Link>
         </div>
       )
   }
@@ -71,19 +60,22 @@ class Content extends React.Component {
 
 
 const mapStateToProps = (state, prevProp) => {
-  // const found = state.json.contents.filter( content => content.category === prevProp.match.params.category_name )
-  // console.log('content---router-props--checking', prevProp.match.params.category_name)
-  console.log('content---router-props--checking', prevProp)
-  console.log('content-restaruant--checking', state.restaurant.restaurants)
+  const split = prevProp.match.params.name.split('-').join(' ')
+  const found = state.json.contents.filter( content => content.category === split )
+  // console.log('content---router-props--checking', prevProp.match.params.name)
+  // console.log('found', found)
+  // console.log('content-restaruant--checking', state.restaurant.restaurants)
+
   return {
-    content: findContentByRank(state.auth.currentUser.knowledge, state.json.contents),
+    prevUrl: prevProp.match.params.name,
+    content: found,
     user: state.auth.currentUser,
     restaurants: state.restaurant.restaurants
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ updateUser }, dispatch);
+  return bindActionCreators({ updateUser, setNewSuggestions }, dispatch);
 }
 
 export default IsAuthenticated(withRouter(connect(mapStateToProps, mapDispatchToProps)(Content)));

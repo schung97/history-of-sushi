@@ -7,3 +7,8 @@ export const getRestaurants = () => {
     })
   }
 }
+
+
+export const setNewSuggestions = suggestions => {
+  return { type: "SET_NEW_SUGGESTIONS", suggestions, loading: false }
+}

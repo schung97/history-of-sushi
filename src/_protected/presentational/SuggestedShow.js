@@ -51,7 +51,7 @@ import { bindActionCreators } from 'redux';
 const SuggestedShow = (props ) => {
   // slideIndex = 1;
   // showSlides(slideIndex)
-console.log('suggested show', props)
+  
     if (props.page === undefined) {
       return (<div> Suggestions</div>)
     } else {

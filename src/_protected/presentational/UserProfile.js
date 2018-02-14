@@ -2,7 +2,7 @@
 import React from 'react';
 import Suggested from './Suggested';
 import Favorited from './Favorited';
-import ExtraStuff from './ExtraStuff';
+// import ExtraStuff from './ExtraStuff';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter, Link } from 'react-router-dom';
@@ -25,15 +25,17 @@ class UserProfile extends React.Component {
         clicked: false
       }
   }
-
   handleRoute = (history) => {
     // this.props.setCurrentCategory(rank)
-    history.push(`/sushi-knowledge`)
+    history.push(`/sushi-knowledge/${'Beginning'}`)
   }
-
   render() {
     console.log('pro',this.props.user_rank, this.props.user.knowledge)
-    const facts = this.props.funFacts.facts.map( (fact, i) => <li key={i}>{fact.fact}</li> )
+    const facts = this.props.funFacts.facts.map( (fact, i) => {
+      const removeColon = fact.fact.split(':')
+      const words = removeColon.map( (word, k) => <li key={k}>{word}</li> )
+      return (<ul key={i}>{words}</ul>)
+    })
     const randomFact = randomlySelectOne(facts)
 
     return (
@@ -52,10 +54,10 @@ class UserProfile extends React.Component {
           }
 
           <div className="user-rank">
-            <button onClick={ () => this.handleRoute(this.props.history, 'Beginning')}>Beginning</button>
-            <button disabled={!(this.props.user_rank > 0)} onClick={ () => this.handleRoute(this.props.history)}>Rise of Sushi</button>
-            <button disabled={!(this.props.user_rank > 1)} onClick={ () => this.handleRoute(this.props.history)}>Type</button>
-            <button disabled={!(this.props.user_rank > 2)} onClick={ () => this.handleRoute(this.props.history)}>Etiquette</button>
+            <Link to={`/sushi-knowledge/${'Beginning'}`}><button>Beginning</button></Link>
+            <Link to={`/sushi-knowledge/${'Rise-of-Sushi'}`}><button disabled={!(this.props.user_rank > 0)} onClick={ () => this.handleRoute(this.props.history)}>Rise of Sushi</button></Link>
+            <Link to={`/sushi-knowledge/${'Type'}`}><button disabled={!(this.props.user_rank > 1)} onClick={ () => this.handleRoute(this.props.history)}>Type</button></Link>
+            <Link to={`/sushi-knowledge/${'Etiquette'}`}><button disabled={!(this.props.user_rank > 2)} onClick={ () => this.handleRoute(this.props.history)}>Etiquette</button></Link>
             <button id="fact-dropdown" onClick={ () => this.setState({ clicked: !this.state.clicked }) }>Fun Fact</button>
             <div id="fact-dropdown-content">
               {randomFact}
@@ -66,7 +68,7 @@ class UserProfile extends React.Component {
 
         <Suggested />
         <Favorited />
-        <ExtraStuff />
+
 
         <Link to="/sushi-rank" id="right"><Right size={48}/></Link>
       </div>

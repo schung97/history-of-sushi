@@ -11,6 +11,7 @@ import UserProfile from './_protected/presentational/UserProfile';
 import UserSushiRank from './_protected/presentational/UserSushiRank';
 import FavoritedShow from './_protected/presentational/FavoritedShow';
 import SuggestedShow from './_protected/presentational/SuggestedShow';
+import ContentShow from './_protected/presentational/ContentShow';
 
 
 //** switch back if it becomes stateful **//
@@ -57,7 +58,8 @@ class App extends React.Component {
                 <Route exact path="/signed-out" component={SignedOut}/>
                 <Route exact path="/profile" component={UserProfile} />
                 <Route exact path="/sushi-rank" component={UserSushiRank}/>
-                <Route path="/sushi-knowledge/" component={Content}/>
+                <Route exact path="/sushi-knowledge/:name/suggestions" component={ContentShow} />
+                <Route path="/sushi-knowledge/:name" component={Content}/>
                 <Route path="/favorites/:favorite_id" component={FavoritedShow} />
                 <Route path="/suggestions/:suggestion_id" component={SuggestedShow} />
               </Switch>
@@ -80,7 +82,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state, prevProp) => {
-
+console.log('aapp', prevProp)
   return {
     loggedIn: state.auth.loggedIn ,
     userRank: state.auth.currentUser.knowledge,

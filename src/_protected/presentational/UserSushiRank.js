@@ -20,7 +20,7 @@ const UserSushiRank = (props) => {
         <summary>Above Average</summary>
       </details>
       <details>
-        <summary>Show-off</summary>
+        <summary>Show-Off</summary>
       </details>
       <details>
         <summary>Appreciation</summary>

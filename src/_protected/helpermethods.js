@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const findContentByRank = (rank, categories) =>  {
-  // debugger
   switch (rank) {
     case "Amateur":
       return categories[0];
@@ -9,7 +8,7 @@ export const findContentByRank = (rank, categories) =>  {
       return categories[1];
     case "Above-Average":
       return categories[2];
-    case "Show-off":
+    case "Show-Off":
       return categories[4];
     case "Appreciation":
       return categories[5];
@@ -18,7 +17,7 @@ export const findContentByRank = (rank, categories) =>  {
   }
 }
 
-// export const findContentCategory
+
 
 export const randomlySort = (content) => {
   const randomly = content.sort(() => (.5 - Math.random()))
@@ -32,7 +31,7 @@ export const randomlySelectOne = content => {
 
 
 export const userRankByNum = userRank => {
-  const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-off', 'Appreciation'];
+  const ranks = ['Amateur', 'Basic', 'Above-Average', 'Show-Off', 'Appreciation'];
   const rankNum = ranks.indexOf(userRank);
   return rankNum;
 }
