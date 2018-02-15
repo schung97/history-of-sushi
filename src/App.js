@@ -42,7 +42,7 @@ class App extends React.Component {
 
     if (!this.props.loading1 && !this.props.loading2) {
       return (
-          <div className={ (window.location.pathname.replace(/[^\w]/g, '') || 'index') + ' app' }>
+          <div className={ (window.location.pathname.replace(/^\/|\/.*|[^\w]/g, '') || 'index') + ' app' }>
 
             <Header/>
 

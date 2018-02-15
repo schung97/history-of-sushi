@@ -9,19 +9,16 @@ import { userRankByNum } from '../helpermethods';
 const ContentShow = (props) => {
 // const categories = ['Beginning', 'Rise-of-Sushi', 'Type', 'Etiquette']
 
-const link = {
-  width: `${(100 / props.new_suggestions.length)}%`,
-  display: 'inline-block'
-}
-
     if (props.new_suggestions.length === 0 ) {
       return ( <div>" new suggestions "</div>)
     } else {
-      const suggestions = props.new_suggestions.map( (suggestion, i ) => (<div key={i} style={link}> <img src={`${suggestion.photos[0]}`} alt={`${suggestion.name}pic1`}/> <dl>{ suggestion.name }</dl></div>) )
+      const suggestions = props.new_suggestions.map( (suggestion, i ) => (<div className="grid-item" key={i}> <img src={`${suggestion.photos[0]}`} alt={`${suggestion.name}pic1`}/> <dl>{ suggestion.name }</dl></div>) )
 
       return (
         <div>
-          {suggestions}
+          <div className="grid">
+            {suggestions}
+          </div>
           <Link to="/profile"><button>Go To Profile </button></Link>
         </div>
       )

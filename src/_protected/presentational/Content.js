@@ -41,8 +41,10 @@ class Content extends React.Component {
     const facts = this.props.content[0].facts.map( (content, i) => {
       return (
         <div key={i} className={`section-${i}`}>
-          <p> --------{i}------------ </p>
-          <p>{content.fact}</p>
+          <div>
+            <p> --------{i}------------ </p>
+            <p>{content.fact}</p>
+          </div>
         </div>
       )
     })

@@ -16,3 +16,121 @@
   }
 
 }
+
+.app.favorites main > div {
+  position: relative;
+  margin: 30px 25px 12px 25px;
+}
+
+.app.favorites img {
+  position: relative;
+  max-width: 75%;
+  max-height: 60vh;
+  margin: auto;
+}
+
+.app.favorites h1 {
+  margin: auto;
+  width: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.app.favorites h1:hover {
+  transform: scale(1.4);
+}
+
+.app.sushirank .main > div {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app.sushirank section:first-of-type {
+  margin-top: 60px;
+}
+
+.app.sushirank details {
+  margin: 2em 0;
+}
+
+.app.sushirank summary {
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
+
+.app.sushirank summary:focus {
+  outline: none;
+}
+
+.sushi-knowledge-contents {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.sushi-knowledge-contents > div {
+  height: 100vh;
+  font-size: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sushi-knowledge-contents > div > div {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sushi-knowledge-contents > div p {
+  transition: 0.3s;
+  cursor: default;
+}
+
+.sushi-knowledge-contents > div p:hover {
+  transform: scale(1.3);
+}
+
+.sushi-knowledge-contents button, .sushiknowledge.app button {
+  outline: none;
+  border: none;
+  padding: 20px;
+  background-color: rgb(254, 204, 73);
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 60px;
+}
+
+.sushi-knowledge-contents button:hover, .sushiknowledge.app button:hover {
+  background-color: rgb(237, 104, 98);
+}
+
+.sushiknowledge.app .grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 50px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.sushiknowledge.app .grid-item {
+  display: inline-block;
+  flex: 0 0 30%;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #eee;
+}
+
+.sushiknowledge.app .grid-item dl {
+  margin: 0;
+  padding-top: 17px;
+}
+
+.sushiknowledge.app .grid-item img {
+  width: 100%;
+  border: 1px solid #ddd;
+}

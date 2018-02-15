@@ -30,9 +30,11 @@ const SuggestedShow = (props ) => {
 
       return (
         <div className="slideshow">
-          {photos}
-          <a className="prev" onClick={() => plusSlides(-1)}>back</a>
-          <a className="next" onClick={() => plusSlides(1)}>next</a>
+          <div className="slides">
+            {photos}
+            <a className="prev" onClick={() => plusSlides(-1)}>back</a>
+            <a className="next" onClick={() => plusSlides(1)}>next</a>
+          </div>
           <h1><Heart onClick={() => props.createFavoriteFromSuggestions(props.user.id, props.page.restaurant_id, props.page.id, props.history)}/></h1>
           <dl>{ props.page.restaurant }</dl>
           <dl>{ props.page.rating }</dl>

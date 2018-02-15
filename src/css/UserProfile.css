@@ -21,7 +21,7 @@
 .user-rank > * {
   display: inline-block;
   width: 90%;
-  margin-top: 1px;
+  margin-top: 1.3px;
 }
 
 .user-rank > span {
@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-img {
+.user-info img {
   max-width: 100%;
   padding: 30px;
   height: auto;

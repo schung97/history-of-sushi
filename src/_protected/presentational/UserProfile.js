@@ -68,8 +68,10 @@ class UserProfile extends React.Component {
 
         </div>
 
-        <Suggested />
-        <Favorited />
+        <div className="right-column">
+          <Suggested />
+          <Favorited />
+        </div>
 
 
         <Link to="/sushi-rank" id="right"><Right size={48}/></Link>

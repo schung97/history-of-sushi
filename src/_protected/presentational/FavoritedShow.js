@@ -14,8 +14,8 @@ console.log('favshow', props.history)
     } else {
       return (
         <div>
-          <h1><Delete onClick={() => props.deleteFavorite(props.page.id, props.history)}/></h1>
           <img src={`${props.page.photos[0]}`} alt={`${props.page.restaurant}pic1`}/>
+          <h1><Delete onClick={() => props.deleteFavorite(props.page.id, props.history)}/></h1>
           <dl>{ props.page.restaurant }</dl>
           <dl>{ props.page.price }</dl>
           <dl>{ props.page.address }</dl>
