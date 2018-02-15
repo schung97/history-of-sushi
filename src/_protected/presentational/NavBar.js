@@ -7,8 +7,10 @@ import '../../css/NavBar.css';
 const NavBar = (props) => {
   return (
     <nav>
-      <li>History of Sushi</li>
-      <li onClick={ () => props.logoutUser(props.history)}>Sign Out</li>
+      <ul>
+        <li><div>History of Sushi</div></li>
+        <li className="sign-out"><a onClick={ () => props.logoutUser(props.history)}>Sign Out</a></li>
+      </ul>
     </nav>
   )
 }

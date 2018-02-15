@@ -1,8 +1,20 @@
 
 #user-page-nav {
-  background-color: rgb(255, 255, 255);
+  background: none;
+  border-top: 1px solid white;
+  margin: 30px 25px 12px 25px;
+}
+
+#user-page-nav ul {
+  width: 33.33%;
+  background-color: rgb(254, 204, 73);
 }
 
 #user-page-nav li {
   float: left;
+  width: 50%;
+}
+
+#user-page-nav li:hover {
+  background-color: rgb(237, 104, 98);
 }

@@ -1,21 +1,38 @@
 
 nav {
   overflow: hidden;
-  background-color: rgb(218, 218, 218);
+  background-color: #999;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 nav li {
+  float: right;
   list-style-type: none;
   display: inline-block;
-  padding: 10px 16px;
+  padding: 0;
+  color: white;
 }
 
-nav li:hover {
-  background-color: grey;
+nav li > * {
+  padding: 15px 30px;
+  display: inline-block;
 }
+
+nav a, nav a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 nav li:first-child {
   float: left;
 }
-nav li:last-child {
-  float: right;
+
+nav .sign-out:hover {
+  background-color: grey;
+  cursor: pointer;
 }

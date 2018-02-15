@@ -6,8 +6,10 @@ import '../../css/UserPageNavBar.css';
 const UserPageNavBar = (props) => {
   return (
     <nav id="user-page-nav">
-      <Link to="/profile"><li>PROFILE</li></Link>
-      <Link to="/sushi-rank"><li>SUSHI RANK</li></Link>
+      <ul>
+        <li><Link to="/profile">PROFILE</Link></li>
+        <li><Link to="/sushi-rank">SUSHI RANK</Link></li>
+      </ul>
     </nav>
   )
 }

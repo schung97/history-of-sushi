@@ -32,7 +32,7 @@ class Content extends React.Component {
     // const categories = ['Beginning', 'Rise of Sushi', 'Type', 'Etiquette'];
     const found = this.props.restaurants.filter( restaurant => restaurant.rank === newRank)
     const suggestions = found.map( sugg => sugg.id)
-    // this.props.setNewSuggestions(found)
+
     this.props.updateUser(this.props.user, newRank, this.props.history, suggestions, this.props.prevUrl)
   }
 
@@ -62,9 +62,6 @@ class Content extends React.Component {
 const mapStateToProps = (state, prevProp) => {
   const split = prevProp.match.params.name.split('-').join(' ')
   const found = state.json.contents.filter( content => content.category === split )
-  // console.log('content---router-props--checking', prevProp.match.params.name)
-  // console.log('found', found)
-  // console.log('content-restaruant--checking', state.restaurant.restaurants)
 
   return {
     prevUrl: prevProp.match.params.name,

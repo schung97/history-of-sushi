@@ -9,6 +9,11 @@ input[type="text"], select {
     box-sizing: border-box;
 }
 
+input[type="text"]:focus {
+  outline: none;
+  background: rgba(255, 190, 0, 0.2);
+}
+
 input[type=submit] {
     width: 100%;
     background-color: rgb(254, 204, 73);
@@ -29,4 +34,5 @@ form {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    margin: 120px auto;
 }

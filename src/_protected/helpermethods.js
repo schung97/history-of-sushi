@@ -17,8 +17,6 @@ export const findContentByRank = (rank, categories) =>  {
   }
 }
 
-
-
 export const randomlySort = (content) => {
   const randomly = content.sort(() => (.5 - Math.random()))
   return randomly;
@@ -26,7 +24,7 @@ export const randomlySort = (content) => {
 
 export const randomlySelectOne = content => {
   const randomIndex = Math.floor(Math.random() * content.length )
-  return ( <ul>{ content[randomIndex] }</ul> )
+  return ( <div>{ content[randomIndex] }</div> )
 }
 
 

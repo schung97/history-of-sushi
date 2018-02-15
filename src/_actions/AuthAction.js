@@ -66,17 +66,6 @@ export const deleteFavorite = (id, history) => {
 
 // *** update user ** //
 
-// export const updateUser = ( userContent, newRank, history ) => {
-//   const user = Object.assign(userContent, {knowledge: `${newRank}`})
-//   // debugger
-//   return dispatch => {
-//     Adapter.updateUser(user).then( user => {
-//       dispatch({ type: "SET_CURRENT_USER", user })
-//       history.push('/profile')
-//     })
-//   }
-// }
-
 export const updateUser = ( userContent, newRank, history, suggestions, prevUrl ) => {
   const user = Object.assign(userContent, {knowledge: `${newRank}`, suggestions: suggestions})
   return dispatch => {
@@ -86,12 +75,3 @@ export const updateUser = ( userContent, newRank, history, suggestions, prevUrl 
     })
   }
 }
-
-// export const createSuggestions = (user_id, restaurant_id, history) => {
-//   return dispatch => {
-//     Adapter.createFavorite({ user_id, restaurant_id, suggestion_id }).then( user => {
-//       dispatch({ type: "SET_CURRENT_USER", user })
-//       history.push('/profile')
-//     })
-//   }
-// }

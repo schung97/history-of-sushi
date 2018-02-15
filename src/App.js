@@ -17,8 +17,6 @@ import ContentShow from './_protected/presentational/ContentShow';
 //** switch back if it becomes stateful **//
 // import Content from './_protected/component/Content';
 import Content from './_protected/presentational/Content';
-// import ContentDisplay from './_protected/presentational/ContentDisplay';
-
 import SignUp from './_public/component/SignUp';
 import SignIn from './_public/component/SignIn';
 import SignedOut from './_public/presentational/SignedOut';
@@ -44,7 +42,8 @@ class App extends React.Component {
 
     if (!this.props.loading1 && !this.props.loading2) {
       return (
-          <div className="app">
+          <div className={ (window.location.pathname.replace(/[^\w]/g, '') || 'index') + ' app' }>
+
             <Header/>
 
             <div className="main">
@@ -65,8 +64,6 @@ class App extends React.Component {
               </Switch>
             </div>
 
-            <Footer/>
-
           </div>
         )
       } else {
@@ -82,7 +79,6 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-// console.log('aapp', prevProp)
   return {
     loggedIn: state.auth.loggedIn ,
     userRank: state.auth.currentUser.knowledge,

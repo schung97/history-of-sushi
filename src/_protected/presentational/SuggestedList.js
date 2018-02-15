@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-// import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+
 
 const link = {
   width: '200px',
@@ -20,7 +20,6 @@ const SuggestedList = (props) => {
     )
   })
   return ( <div className="dropdown-content">{restaurants}</div>)
-  // return (<Dropdown placeholder='Select Friend' fluid selection options={restaurants} />)
 }
 
 export default withRouter(SuggestedList);
