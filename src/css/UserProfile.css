@@ -1,8 +1,69 @@
 
-.user-status {
-  display: block;
+#right {
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
 }
-img {
-  width: auto;
-  height: 300px;
+
+#fact-dropdown-content {
+  padding: 15px 35px 25px 35px;
+}
+
+#fact-dropdown-content ul {
+  margin: 0;
+  padding: 0;
+}
+
+#fact-dropdown-content li {
+  list-style-type: none;
+}
+
+.user-rank > * {
+  display: inline-block;
+  width: 90%;
+  margin-top: 1.3px;
+}
+
+.user-rank > span {
+  margin-top: 35px;
+}
+
+.user-rank button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+}
+
+.user-rank button:hover {
+  background: rgb(237, 104, 98);
+  color: white;
+  cursor: pointer;
+}
+
+.user-info img {
+  max-width: 100%;
+  padding: 30px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: -25px;
+}
+
+.user-profile {
+  margin: 0 25px 20px 25px;
+  overflow: hidden;
+}
+
+.user-profile .extra {
+  border: 2px solid;
+}
+
+.user-profile h2 {
+  margin-bottom: 0;
+}
+
+.user-info {
+  background-color: rgb(193, 192, 197);
+  width: 33.33%;
+  float: left;
+  display: inline-block;
 }

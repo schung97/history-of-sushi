@@ -30,7 +30,7 @@ class SignIn extends React.Component {
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <input type="text" name="username" placeholder="Username" value={this.state.auth.username}/>
-        <input type="text" name="password" placeholder="Password" value={this.state.auth.password}/>
+        <input type="password" name="password" placeholder="Password" value={this.state.auth.password}/>
         <input type="submit" name="submit" value="Log In"/>
       </form>
     )
