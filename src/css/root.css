@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+
 }
 
 #root {
@@ -44,6 +45,7 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 100px;
 }
 
 .app.sushirank section:first-of-type {
@@ -70,25 +72,26 @@
 
 .sushi-knowledge-contents > div {
   height: 100vh;
-  font-size: 42px;
+  font-size: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .sushi-knowledge-contents > div > div {
+  color: white;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .sushi-knowledge-contents > div p {
-  transition: 0.3s;
+  transition: 0.2s;
   cursor: default;
 }
 
 .sushi-knowledge-contents > div p:hover {
-  transform: scale(1.3);
+  transform: scale(2.3);
 }
 
 .sushi-knowledge-contents button, .sushiknowledge.app button {
@@ -99,11 +102,12 @@
   cursor: pointer;
   color: white;
   font-size: 14px;
+  margin-top: 60px;
   margin-bottom: 60px;
 }
 
 .sushi-knowledge-contents button:hover, .sushiknowledge.app button:hover {
-  background-color: rgb(237, 104, 98);
+  background-color: rgb(201, 210, 215);
 }
 
 .sushiknowledge.app .grid {

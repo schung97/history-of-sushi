@@ -1,7 +1,7 @@
 
 nav {
   overflow: hidden;
-  background-color: #999;
+  background-color: rgb(193, 192, 197);
 }
 
 nav ul {
@@ -15,7 +15,7 @@ nav li {
   list-style-type: none;
   display: inline-block;
   padding: 0;
-  color: white;
+  /*color: white;*/
 }
 
 nav li > * {

@@ -37,12 +37,12 @@ class Content extends React.Component {
   }
 
   render() {
-
+    const style= [{ backgroundColor: 'rgb(193, 192, 197)' }, { backgroundColor: 'rgb(193, 192, 0)' } ]
     const facts = this.props.content[0].facts.map( (content, i) => {
+
       return (
-        <div key={i} className={`section-${i}`}>
+        <div key={i} className={`section-${i}`} style={style[i % 2]}>
           <div>
-            <p> --------{i}------------ </p>
             <p>{content.fact}</p>
           </div>
         </div>

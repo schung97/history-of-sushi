@@ -1,5 +1,5 @@
 
-input[type="text"], select {
+input[type="text"], input[type="password"], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -9,7 +9,7 @@ input[type="text"], select {
     box-sizing: border-box;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="text"]:focus {
   outline: none;
   background: rgba(255, 190, 0, 0.2);
 }

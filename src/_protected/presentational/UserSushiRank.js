@@ -1,5 +1,5 @@
 import React from 'react';
-import { intro , lorem_ipsum } from '../../text/Guide.js'
+import { intro , lorem_ipsum, amateur, basic, above, showoff, appreciation } from '../../text/Guide.js'
 import Left from 'react-icons/lib/fa/angle-left';
 import { Link } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
@@ -8,29 +8,29 @@ const UserSushiRank = (props) => {
   return (
     <div>
       <section>
-        {intro}
+        <h3>{intro}</h3>
       </section>
       <details>
         <summary>Amateur</summary>
-        {lorem_ipsum}
+        {amateur}
       </details>
       <details>
         <summary>Basic</summary>
-        {lorem_ipsum}
+        {basic}
       </details>
       <details>
         <summary>Above Average</summary>
-        {lorem_ipsum}
+        {above}
       </details>
       <details>
         <summary>Show-off</summary>
-        {lorem_ipsum}
+        {showoff}
       </details>
       <details>
         <summary>Appreciation</summary>
-        {lorem_ipsum}
+        {appreciation}
       </details>
-      <Link to="/profile"><h2><Left /></h2></Link>
+      <Link to="/profile"><Left size={48} /></Link>
     </div>
   )
 }

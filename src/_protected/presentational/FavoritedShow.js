@@ -6,9 +6,9 @@ import Delete from 'react-icons/lib/ti/times-outline';
 
 import { deleteFavorite } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
- // ** TODO css butons later *** //
+
 const FavoritedShow = (props) => {
-console.log('favshow', props.history)
+
     if (!props.page) {
       return (<div> favorited show</div>)
     } else {
@@ -16,12 +16,11 @@ console.log('favshow', props.history)
         <div>
           <img src={`${props.page.photos[0]}`} alt={`${props.page.restaurant}pic1`}/>
           <h1><Delete onClick={() => props.deleteFavorite(props.page.id, props.history)}/></h1>
-          <dl>{ props.page.restaurant }</dl>
+          <dl><h2>{ props.page.restaurant }</h2></dl>
           <dl>{ props.page.price }</dl>
-          <dl>{ props.page.address }</dl>
-          <dl>{ props.page.phone }</dl>
-          <dl>{ props.page.review_count }</dl>
-          <dl>{ props.page.url }</dl>
+          <dl>Address: { props.page.address }</dl>
+          <dl>Phone: { props.page.phone }</dl>
+          <dl>Review Count: { props.page.review_count }</dl>
         </div>
       )
     }

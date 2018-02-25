@@ -1,4 +1,9 @@
 const intro = "This is NYC's curated list of sushi restaurant. This place is for sushi lovers and soon to be sushi lovers. To enjoy sushi, you must know sushi.  Restaurants will be unlocked by your knowledge of sushi. Tests will be given to prove your knowledge of sushi. Each rank, will unlock more hidden gems in the city. Click 'Begin' to start and test alongside the history of sushi to unlock the secret society beyond NYC's sushi restaurant."
 const lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+const amateur = "This is the beginning. No sushi recommendations are given at this default level. Start your knowledge by leveling up to basic and learn about the early history of sushi!";
+const basic = "Basic, meaning that you just found out about sushi or you probably eat it for lunch and dinner time to time here and there. You don't really know sushi besides the existence of it. Get to this rank to discover your next sushi lunch or dinner!";
+const above = "Your knowledge is better than basic. Learn about the different type of sushi in western-eastern worlds."
+const showoff ="So you know a few facts here and there but do you truly know how to interact with sushi chefs?";
+const appreciation = "The highest level of sushi experience. To be at this rank means you the history of sushi! Congrats! At this level, you've unlocked all the sushi gems in New York City!";
 
-export { intro , lorem_ipsum};
+export { intro , lorem_ipsum, amateur, basic, above, showoff, appreciation};

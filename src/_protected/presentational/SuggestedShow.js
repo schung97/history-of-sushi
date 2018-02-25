@@ -36,12 +36,11 @@ const SuggestedShow = (props ) => {
             <a className="next" onClick={() => plusSlides(1)}>next</a>
           </div>
           <h1><Heart onClick={() => props.createFavoriteFromSuggestions(props.user.id, props.page.restaurant_id, props.page.id, props.history)}/></h1>
-          <dl>{ props.page.restaurant }</dl>
-          <dl>{ props.page.rating }</dl>
-          <dl>{ props.page.address }</dl>
-          <dl>{ props.page.phone }</dl>
-          <dl>{ props.page.review_count }</dl>
-          <dl>{ props.page.url }</dl>
+          <dl><h2>{ props.page.restaurant }</h2></dl>
+          <dl>{ props.page.price }</dl>
+          <dl>Address: { props.page.address }</dl>
+          <dl>Phone: { props.page.phone }</dl>
+          <dl>Review Count: { props.page.review_count }</dl>
         </div>
       )
     }
