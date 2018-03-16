@@ -1,0 +1,28 @@
+
+header {
+  font-family: 'Pragati Narrow', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding-top: 30px;
+}
+.index.app, .signin.app, .signup.app, .signedout.app {
+  text-align: center;
+}
+
+.logo {
+  display: inline-block;
+  font-size: .5em;
+  line-height: 0.85;
+}
+.last-word {
+  color: rgb(201, 33, 37);
+  display: block;
+  font-size: 2.5rem;
+}
+
+.home {
+  border-left: 2px solid;
+  border-right: 2px solid;
+  margin: 20px 40px;
+  padding: 20px 40px;
+}
