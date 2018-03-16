@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../css/SignedOut.css';
 
 const SignedOut = () => {
   return (

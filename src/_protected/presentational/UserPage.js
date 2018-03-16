@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Link } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
-//  ** files  ** //
 import Suggested from './Suggested';
 import Favorited from './Favorited';
 import UserProfile from './UserProfile';

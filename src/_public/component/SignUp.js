@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeNewUser } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
-import '../../css/SignIn-UpForm.css';
 
 class SignUp extends React.Component {
   constructor() {

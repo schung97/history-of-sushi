@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// ** files ** //
 import FavoritedList from './FavoritedList';
 import IsAuthenticated from '../../IsAuthenticated';
-import '../../css/DropdownBar.css';
 
 class Favorited extends React.Component {
 

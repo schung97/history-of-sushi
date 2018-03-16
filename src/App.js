@@ -24,8 +24,6 @@ import Home from './_public/presentational/Home';
 import Header from './_public/presentational/Header';
 import Footer from './_public/presentational/Footer';
 
-import './css/App.css';
-import './css/Main.css';
 
 class App extends React.Component {
 

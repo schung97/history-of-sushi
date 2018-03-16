@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import IsAuthenticated from '../../IsAuthenticated';
-import '../../css/SuggestionsShow.css';
 
 import Heart from 'react-icons/lib/ti/heart-outline';
 import { plusSlides } from '../../styling';

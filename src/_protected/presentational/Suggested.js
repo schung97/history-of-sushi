@@ -1,11 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-
-// ** files ** //
 import SuggestedList from './SuggestedList';
 import IsAuthenticated from '../../IsAuthenticated';
-import '../../css/DropdownBar.css';
 
 
 class Suggested extends React.Component {

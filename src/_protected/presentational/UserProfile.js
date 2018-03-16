@@ -2,7 +2,6 @@
 import React from 'react';
 import Suggested from './Suggested';
 import Favorited from './Favorited';
-// import ExtraStuff from './ExtraStuff';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter, Link } from 'react-router-dom';
@@ -11,7 +10,6 @@ import Right from 'react-icons/lib/fa/angle-right';
 import IsAuthenticated from '../../IsAuthenticated';
 import { setCurrentCategory } from '../../_actions/ContentAction';
 
-import '../../css/UserProfile.css';
 import { randomlySelectOne, userRankByNum } from '../helpermethods';
 
 class UserProfile extends React.Component {
