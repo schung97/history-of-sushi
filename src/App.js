@@ -36,13 +36,10 @@ class App extends React.Component {
     if (!this.props.loading1 && !this.props.loading2) {
       return (
           <div className={ (window.location.pathname.replace(/^\/|\/.*|[^\w]/g, '') || 'index') + ' app' }>
-
             <Header/>
-
             <div className="main">
                 { showNavBar ? (  <NavBar {...this.props}/> ) : null }
                 { showUserNavBar ? ( <UserPageNavBar username={this.props.username}/> ) :null }
-
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/signup" component={SignUp}/>
@@ -56,8 +53,6 @@ class App extends React.Component {
                 <Route path="/suggestions/:suggestion_id" component={SuggestedShow} />
               </Switch>
             </div>
-
-            <Footer />
           </div>
         )
       } else {
