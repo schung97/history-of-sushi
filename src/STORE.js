@@ -3,17 +3,13 @@ import reduxThunk from 'redux-thunk';
 import auth from './_reducers/AuthReducer';
 import json from './_reducers/JsonReducer';
 import restaurant from './_reducers/RestaurantReducer';
-// import question from './_reducers/QuestionReducer';
 import content from './_reducers/ContentReducer';
-// import user from './_reducers/UserReducer';
 
 const reducers = combineReducers({
   auth,
   json,
   restaurant,
-  content,
-  // question,
-  // user
+  content
 });
 
 

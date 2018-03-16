@@ -4,25 +4,21 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getContentsAndQuestionsByCategory } from './_actions/JsonAction';
 import { getRestaurants } from './_actions/RestaurantAction';
+import SignUp from './_components/container/SignUp';
+import SignIn from './_components/container/SignIn';
+import UserProfile from './_components/container/UserProfile';
+import Content from './_components/container/Content';
 
-import NavBar from './_protected/presentational/NavBar';
-import UserPageNavBar from './_protected/presentational/UserPageNavBar';
-import UserProfile from './_protected/presentational/UserProfile';
-import UserSushiRank from './_protected/presentational/UserSushiRank';
-import FavoritedShow from './_protected/presentational/FavoritedShow';
-import SuggestedShow from './_protected/presentational/SuggestedShow';
-import ContentShow from './_protected/presentational/ContentShow';
-
-
-//** switch back if it becomes stateful **//
-// import Content from './_protected/component/Content';
-import Content from './_protected/presentational/Content';
-import SignUp from './_public/component/SignUp';
-import SignIn from './_public/component/SignIn';
-import SignedOut from './_public/presentational/SignedOut';
-import Home from './_public/presentational/Home';
-import Header from './_public/presentational/Header';
-import Footer from './_public/presentational/Footer';
+import NavBar from './_components/presentational/NavBar';
+import UserPageNavBar from './_components/presentational/UserPageNavBar';
+import UserSushiRank from './_components/presentational/UserSushiRank';
+import FavoritedShow from './_components/presentational/FavoritedShow';
+import SuggestedShow from './_components/presentational/SuggestedShow';
+import ContentShow from './_components/presentational/ContentShow';
+import SignedOut from './_components/presentational/SignedOut';
+import Home from './_components/presentational/Home';
+import Header from './_components/presentational/Header';
+import Footer from './_components/presentational/Footer';
 
 
 class App extends React.Component {
@@ -33,7 +29,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('Is User Logged In?', this.props.loggedIn)
 
     const showUserNavBar= this.props.loggedIn && this.props.location.pathname.indexOf('/sushi-knowledge') !== 0;
     const showNavBar = this.props.loggedIn;
@@ -62,6 +57,7 @@ class App extends React.Component {
               </Switch>
             </div>
 
+            <Footer />
           </div>
         )
       } else {
