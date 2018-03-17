@@ -11,9 +11,9 @@ class Suggested extends React.Component {
       return ( <SuggestedList restaurants={[]}/> )
     } else {
       return (
-        <div className="suggested">
-          <button className="drop-button">Suggested Restaurants</button>
-            <SuggestedList restaurants={this.props.suggestions} handleClick={this.handleClick}/>
+        <div className="suggested drop-button">
+          <h2>Suggested Restaurants</h2>
+          <SuggestedList restaurants={this.props.suggestions} handleClick={this.handleClick}/>
         </div>
       )
     }

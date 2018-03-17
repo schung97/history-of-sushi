@@ -9,19 +9,19 @@ import { bindActionCreators } from 'redux';
 
 const FavoritedShow = (props) => {
     if (!props.page) {
-      return (<div> favorited show</div>)
+      return (<ul> favorited show</ul>)
     } else {
       return (
-        <div>
+        <ul>
           <img src={`${props.page.photos[0]}`} alt={`${props.page.restaurant}pic1`}/>
           <h1><Delete onClick={() => props.deleteFavorite(props.page.id, props.history)}/></h1>
-          <dl>{ props.page.restaurant }</dl>
-          <dl>{ props.page.price }</dl>
-          <dl>{ props.page.address }</dl>
-          <dl>{ props.page.phone }</dl>
-          <dl>{ props.page.review_count }</dl>
-          <dl>{ props.page.url }</dl>
-        </div>
+          <li>{ props.page.restaurant }</li>
+          <li>{ props.page.price }</li>
+          <li>{ props.page.address }</li>
+          <li>{ props.page.phone }</li>
+          <li>{ props.page.review_count }</li>
+          <li>{ props.page.url }</li>
+        </ul>
       )
     }
 

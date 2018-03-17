@@ -1,29 +1,4 @@
 
-header {
-  font-family: 'Pragati Narrow', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin-bottom: 38px;
-}
-button {
-  border: 2px solid rgb(43, 44, 89);
-  background-color: rgb(255,255,255);
-  margin-top: 12px;
-  margin-left: 9px;
-  margin-right: 9px;
-  padding: 10px 15px;
-  border-radius: 35px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 13px;
-  width: 117px;
-}
-button:hover {
-  box-shadow: 2px 2px rgb(205, 59, 59);
-}
-button:focus, a:focus {
-  outline: none;
-}
 .signin.app, .signup.app, .signedout.app {
   text-align: center;
   margin-top: 20vh;

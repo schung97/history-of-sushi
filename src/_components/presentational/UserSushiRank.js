@@ -1,7 +1,5 @@
 import React from 'react';
 import { intro , lorem_ipsum } from '../../text/Guide.js'
-import Left from 'react-icons/lib/fa/angle-left';
-import { Link } from 'react-router-dom';
 import IsAuthenticated from '../container/IsAuthenticated';
 
 const UserSushiRank = (props) => {
@@ -30,7 +28,6 @@ const UserSushiRank = (props) => {
         <summary>Appreciation</summary>
         {lorem_ipsum}
       </details>
-      <Link to="/profile"><h2><Left /></h2></Link>
     </div>
   )
 }

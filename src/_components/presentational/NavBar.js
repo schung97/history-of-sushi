@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import { logoutUser } from '../../_actions/AuthAction';
 
 
 const NavBar = (props) => {
   return (
     <nav>
       <ul>
-        <li><div>History of Sushi</div></li>
+        <li><Link to="/profile">Profile</Link></li>
         <li className="sign-out"><a onClick={ () => props.logoutUser(props.history)}>Sign Out</a></li>
+        <li><Link to="/sushi-rank">About</Link></li>
       </ul>
     </nav>
   )

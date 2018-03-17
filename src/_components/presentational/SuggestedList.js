@@ -14,8 +14,8 @@ const SuggestedList = (props) => {
     return (
       <Link to={`/suggestions/${restaurant.id}`} key={i}><ul>
         <img src={`${restaurant.photos[0]}`} alt={`${restaurant.restaurant}pic1`} style={link}/>
-        <dl>{restaurant.restaurant}</dl>
-        <dl>{restaurant.price}</dl>
+        <li>{restaurant.restaurant}</li>
+        <li>{restaurant.price}</li>
       </ul></Link>
     )
   })

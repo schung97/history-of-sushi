@@ -6,7 +6,6 @@ import { withRouter, Link } from 'react-router-dom';
 import { setCurrentCategory } from '../../_actions/ContentAction';
 import { randomlySelectOne, userRankByNum } from '../helpermethods';
 
-import Right from 'react-icons/lib/fa/angle-right';
 import Suggested from '../presentational/Suggested';
 import Favorited from '../presentational//Favorited';
 import IsAuthenticated from './IsAuthenticated';
@@ -37,7 +36,6 @@ class UserProfile extends React.Component {
     return (
       <div className="user-profile">
         <div className="user-info">
-          <img src="https://media.giphy.com/media/xUOwG7xTFIS7K5Z12o/giphy.gif" alt="default-pic"/>
           { this.props.user.id === undefined ?
             ( <p>not loaded</p> )
             :
@@ -71,8 +69,6 @@ class UserProfile extends React.Component {
           <Favorited />
         </div>
 
-
-        <Link to="/sushi-rank" id="right"><Right size={48}/></Link>
       </div>
     )
   }

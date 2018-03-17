@@ -10,7 +10,6 @@ import UserProfile from './_components/container/UserProfile';
 import Content from './_components/container/Content';
 
 import NavBar from './_components/presentational/NavBar';
-import UserPageNavBar from './_components/presentational/UserPageNavBar';
 import UserSushiRank from './_components/presentational/UserSushiRank';
 import FavoritedShow from './_components/presentational/FavoritedShow';
 import SuggestedShow from './_components/presentational/SuggestedShow';
@@ -38,8 +37,7 @@ class App extends React.Component {
           <div className={ (window.location.pathname.replace(/^\/|\/.*|[^\w]/g, '') || 'index') + ' app' }>
             <Header/>
             <div className="main">
-                { showNavBar ? (  <NavBar {...this.props}/> ) : null }
-                { showUserNavBar ? ( <UserPageNavBar username={this.props.username}/> ) :null }
+                { showNavBar ? (  <NavBar {...this.props}/> ) : null }  
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/signup" component={SignUp}/>

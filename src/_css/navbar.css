@@ -1,0 +1,45 @@
+
+.profile.app > header {
+  text-align: center;
+  margin-top: 5vh;
+}
+nav {
+  overflow: hidden;
+  background-color: #999;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+nav li {
+  float: right;
+  list-style-type: none;
+  display: inline-block;
+  padding: 0;
+  color: white;
+  letter-spacing: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+nav li > * {
+  padding: 15px 30px;
+  display: inline-block;
+}
+
+nav a, nav a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav li:first-child {
+  float: left;
+}
+
+nav .sign-out:hover {
+  background-color: grey;
+  cursor: pointer;
+}
