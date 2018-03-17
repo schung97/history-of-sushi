@@ -1,7 +1,7 @@
 .big-container {
   display: flex;
   flex-direction: column;
-  padding: 70px;
+  padding: 70px 0px;
   box-shadow: 2px 1px 20px 4px rgba(228, 222, 222, 0.46);
 }
 .container {
@@ -42,7 +42,7 @@
   display: none;
 }
 .slide img {
-  width: 400px;
+  width: 70%;
   height: 300px;
   object-fit: contain;
   background-color: rgb(1, 0, 28);
