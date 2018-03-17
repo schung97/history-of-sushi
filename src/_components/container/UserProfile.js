@@ -35,7 +35,9 @@ class UserProfile extends React.Component {
 
     return (
       <div className="user-profile">
-        <div className="user-info">
+        <div className="user-info left-column">
+        <h2>Welcome!</h2>
+        <img src="http://dragene.no/wp-content/uploads/2016/06/default1.jpg" alt="profile picture"/>
           { this.props.user.id === undefined ?
             ( <p>not loaded</p> )
             :

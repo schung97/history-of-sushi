@@ -11,10 +11,10 @@ class Suggested extends React.Component {
       return ( <SuggestedList restaurants={[]}/> )
     } else {
       return (
-        <div className="suggested drop-button">
-          <h2>Suggested Restaurants</h2>
+        <details className="suggested drop-button" open>
+          <summary>Suggested Restaurants</summary>
           <SuggestedList restaurants={this.props.suggestions} handleClick={this.handleClick}/>
-        </div>
+        </details>
       )
     }
   }

@@ -10,10 +10,10 @@ class Favorited extends React.Component {
       return ( <FavoritedList restaurants={[]}/> )
     } else {
       return (
-        <div className="favorited drop-button">
-          <h2>Favorited Restaurants</h2>
+        <details className="favorited drop-button">
+          <summary>Favorited Restaurants</summary>
           <FavoritedList restaurants={this.props.favorites} handleClick={this.handleClick}/>
-        </div>
+        </details>
       )
     }
   }
