@@ -2,13 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import Right from 'react-icons/lib/fa/angle-right';
+import Left from 'react-icons/lib/fa/angle-left';
 
 import { setNewSuggestions } from '../../_actions/RestaurantAction';
 import { updateUser } from '../../_actions/AuthAction';
 
 import IsAuthenticated from './IsAuthenticated';
 import { userRankByNum } from '../helpermethods';
-
+import { plusSlides } from '../../styling';
 
 class Content extends React.Component {
 
@@ -34,22 +36,30 @@ class Content extends React.Component {
   }
 
   render() {
-
     const facts = this.props.content[0].facts.map( (content, i) => {
+      const style = {
+       display: `${i === 0 ? 'block' : 'none' }`
+     }
+
       return (
-        <div key={i} className={`section-${i}`}>
-          <div>
-            <p> --------{i}------------ </p>
-            <p>{content.fact}</p>
-          </div>
+        <div key={i} className="slide" id={`section-${i}`} style={style}>
+          <p>{content.fact}</p>
         </div>
       )
     })
-
+    // const lastIndex = document.getElementsByClassName('slide')[document.getElementsByClassName('slide').length - 1];
+    // const slide = document.getElementById(`section-${lastIndex}`).id;
+    // const show = {
+    //   display: `${slide === `section-${lastIndex}` ? 'block' : 'none'}`,
+    // }
       return (
         <div className="sushi-knowledge-contents">
+        <div className="slides">
           {facts}
-          <Link to={`/sushi-knowledge/${this.props.prevUrl}/suggestions`}><button onClick={ () => this.moveUpARank()}>Complete! Back to Profile</button></Link>
+          <a className="prev" onClick={() => plusSlides(-1)}><Left size={40}/></a>
+          <a className="next" onClick={() => plusSlides(1)}><Right size={40}/></a>
+        </div>
+          <Link to={`/sushi-knowledge/${this.props.prevUrl}/suggestions`}><button onClick={ () => this.moveUpARank()} >Complete! Back to Profile</button></Link>
         </div>
       )
   }

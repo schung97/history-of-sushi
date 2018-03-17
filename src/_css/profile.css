@@ -54,6 +54,8 @@ details summary::-webkit-details-marker {
   background-color: white;
   padding: 30px 0px;
   box-shadow: inset -3px 8px 8px rgba(0,0,0, .1);
+}
+.suggested .dropdown-content {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
