@@ -5,14 +5,25 @@ details {
 details summary::-webkit-details-marker {
   display: none;
 }
+.profile.app .logo {
+  transform: scale(1.4);
+}
 .user-profile {
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  width: 95%;
+  margin: auto;
+  background-color: rgba(240, 220, 220, 0.52);
 }
 .user-info {
   text-align: center;
-  margin:auto;
+  margin: auto;
+  font-size: 21px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.user-info h2 {
+  letter-spacing: 3px;
 }
 .left-column {
   width: 50%;
@@ -33,9 +44,7 @@ details summary::-webkit-details-marker {
   line-height: 2;
 }
 .right-column {
-  height:auto;
-  background-color: rgb(233, 218, 168);
-  padding: 12px 17px;
+  overflow: scroll;
   box-shadow: inset 1px 2px 7px 5px rgba(186, 186, 186, 0.24);
 }
 /* .suggested:hover .dropdown-content, .favorited:hover .dropdown-content {
@@ -65,13 +74,14 @@ details summary::-webkit-details-marker {
   color: black;
 }
 .dropdown-content a ul {
-  margin-top: 30px;
-  flex-basis: 1;
+  width: 300px;
+  margin: auto;
+  margin-bottom: 30px;
 }
 .dropdown-content img {
-  object-fit: cover;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 /* .dropdown-content {
   position: absolute;

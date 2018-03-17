@@ -35,7 +35,8 @@ class UserProfile extends React.Component {
 
     return (
       <div className="user-profile">
-        <div className="user-info left-column">
+        <div className="left-column">
+        <div className="user-info">
         <h2>Welcome!</h2>
         <img src="http://dragene.no/wp-content/uploads/2016/06/default1.jpg" alt="profile picture"/>
           { this.props.user.id === undefined ?
@@ -48,8 +49,6 @@ class UserProfile extends React.Component {
               </div>
             )
           }
-
-          <div className="user-rank">
             <Link to={`/sushi-knowledge/${'Beginning'}`}><button>Beginning</button></Link>
             <br/>
             <Link to={`/sushi-knowledge/${'Rise-of-Sushi'}`}><button disabled={!(this.props.user_rank > 0)} onClick={ () => this.handleRoute(this.props.history)}>Rise of Sushi</button></Link>
@@ -63,7 +62,6 @@ class UserProfile extends React.Component {
               {randomFact}
             </div>
           </div>
-
         </div>
 
         <div className="right-column">

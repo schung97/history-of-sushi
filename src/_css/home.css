@@ -1,9 +1,3 @@
-
-.signin.app, .signup.app, .signedout.app {
-  text-align: center;
-  margin-top: 20vh;
-}
-
 .logo {
   display: inline-block;
   font-size: .5em;
@@ -15,6 +9,15 @@
   font-size: 2.5rem;
 }
 
+.signin.app, .signup.app, .signedout.app {
+  text-align: center;
+  margin-top: 20vh;
+}
+.signin.app .logo, .signup.app .logo, .signedout.app .logo {
+  transform: scale(1.8);
+  margin-bottom: 42px;
+
+}
 .home {
   border-left: 2px solid;
   border-right: 2px solid;
@@ -27,6 +30,9 @@
   top: 43vh;
   right: 0;
   left: 0;
+}
+.index.app footer, .signin.app footer, .signup.app footer, .signedout.app footer {
+  display: none;
 }
 .index:before {
   content: '';

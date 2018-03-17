@@ -10,8 +10,8 @@ const NavBar = (props) => {
     <nav>
       <ul>
         <li><Link to="/profile">Profile</Link></li>
-        <li className="sign-out"><a onClick={ () => props.logoutUser(props.history)}>Sign Out</a></li>
         <li><Link to="/sushi-rank">About</Link></li>
+        <li className="sign-out"><a onClick={ () => props.logoutUser(props.history)}>Sign Out</a></li>
       </ul>
     </nav>
   )
