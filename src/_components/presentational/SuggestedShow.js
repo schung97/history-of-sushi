@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import IsAuthenticated from '../container/IsAuthenticated';
 
 import Heart from 'react-icons/lib/ti/heart-outline';
+import Right from 'react-icons/lib/fa/angle-right';
+import Left from 'react-icons/lib/fa/angle-left';
 import { plusSlides } from '../../styling';
 import { createFavoriteFromSuggestions } from '../../_actions/AuthAction';
 import { bindActionCreators } from 'redux';
@@ -21,26 +23,31 @@ const SuggestedShow = (props ) => {
           display: `${i === 0 ? 'block' : 'none' }`
         }
         return (
-          <div className="slide" key={i} style={style}>
-            <img src={`${photo}`} alt={`${props.page.restaurant}pic${i}`} style={{width: '100%'}}/>
-            <div className="image-number">{`${i + 1} / ${props.page.photos.length}`}</div>
-          </div>  )
+          <figure className="slide" key={i} style={style}>
+            <img src={`${photo}`} alt={`${props.page.restaurant}pic${i}`}/>
+            <figcaption className="image-number">{`${i + 1} / ${props.page.photos.length}`}</figcaption>
+          </figure>  )
       })
 
       return (
         <div className="slideshow">
-          <div className="slides">
-            {photos}
-            <a className="prev" onClick={() => plusSlides(-1)}>back</a>
-            <a className="next" onClick={() => plusSlides(1)}>next</a>
+          <div className="big-container">
+            <div className="slides">
+              {photos}
+              <a className="prev" onClick={() => plusSlides(-1)}><Left size={40}/></a>
+              <a className="next" onClick={() => plusSlides(1)}><Right size={40}/></a>
+            </div>
+            <div className="container">
+              <h1 className="hover"><Heart onClick={() => props.createFavoriteFromSuggestions(props.user.id, props.page.restaurant_id, props.page.id, props.history)}/></h1>
+
+              <p className="restaurant-name">{ props.page.restaurant }</p>
+              <p>Rating: { props.page.rating }</p>
+              <p>Address: { props.page.address }</p>
+              <p>Phone: { props.page.phone }</p>
+              <p>Review Count: { props.page.review_count }</p>
+              <a target="_blank" href={`${props.page.url}`}><p>Click for more info.</p></a>
+            </div>
           </div>
-          <h1><Heart onClick={() => props.createFavoriteFromSuggestions(props.user.id, props.page.restaurant_id, props.page.id, props.history)}/></h1>
-          <dl>{ props.page.restaurant }</dl>
-          <dl>{ props.page.rating }</dl>
-          <dl>{ props.page.address }</dl>
-          <dl>{ props.page.phone }</dl>
-          <dl>{ props.page.review_count }</dl>
-          <dl>{ props.page.url }</dl>
         </div>
       )
     }
