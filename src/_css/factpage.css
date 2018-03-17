@@ -1,0 +1,48 @@
+/* .main {
+  background-color: rgb(250, 234, 181);
+} */
+.sushi-knowledge-contents {
+  /* height: 90vh; */
+  padding-top: .5px;
+  padding-bottom: 50px;
+  background-color: rgb(250, 234, 181);
+}
+.sushi-knowledge-contents button {
+  display: block;
+  border: 2px solid rgb(43, 44, 89);
+  background-color: rgb(255,255,255);
+  /* margin-top: 12px;
+  margin-right: 9px; */
+  padding: 10px 15px;
+  border-radius: 35px;
+  width: 20%;
+  margin: auto;
+}
+.sushi-knowledge-contents .slides {
+  width: 600px;
+  height: 490px;
+  margin: auto;
+  margin-top: 200px;
+  margin-bottom: 80px;
+  outline: none;
+}
+.sushi-knowledge-contents .slide {
+  width: 500px;
+  height: 475px;
+  margin: auto;
+  padding: 70px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  text-align: center;
+  line-height: 1.4;
+  border: 2px solid;
+  border-bottom-left-radius: 2px 50px;
+  border-bottom-right-radius: 60px 5px;
+  box-shadow: 3px 0px 0px 3px rgba(168, 159, 159, 0.62);
+  background-color: white;
+}
+.sushi-knowledge-contents .prev a, .sushi-knowledge-contents .next a {
+  /* position: absolute;
+  bottom: 0; */
+}
