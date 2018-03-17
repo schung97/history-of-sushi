@@ -36,8 +36,8 @@ class App extends React.Component {
       return (
           <div className={ (window.location.pathname.replace(/^\/|\/.*|[^\w]/g, '') || 'index') + ' app' }>
             <Header/>
+            { showNavBar ? (  <NavBar {...this.props}/> ) : null }
             <div className="main">
-                { showNavBar ? (  <NavBar {...this.props}/> ) : null }
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/signup" component={SignUp}/>

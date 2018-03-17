@@ -24,7 +24,7 @@ export const randomlySort = (content) => {
 
 export const randomlySelectOne = content => {
   const randomIndex = Math.floor(Math.random() * content.length )
-  return ( <div>{ content[randomIndex] }</div> )
+  return ( <React.Fragment>{ content[randomIndex] }</React.Fragment> )
 }
 
 

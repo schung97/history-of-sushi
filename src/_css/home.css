@@ -9,11 +9,11 @@
   font-size: 2.5rem;
 }
 
-.signin.app, .signup.app, .signedout.app {
+.signin.app, .signup.app, .signedout.app, .sushiknowledge.app {
   text-align: center;
   margin-top: 20vh;
 }
-.signin.app .logo, .signup.app .logo, .signedout.app .logo {
+.signin.app .logo, .signup.app .logo, .signedout.app .logo, .sushiknowledge.app .logo {
   transform: scale(1.8);
   margin-bottom: 42px;
 

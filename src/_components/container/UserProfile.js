@@ -21,15 +21,14 @@ class UserProfile extends React.Component {
       }
   }
   handleRoute = (history) => {
-    // this.props.setCurrentCategory(rank)
     history.push(`/sushi-knowledge/${'Beginning'}`)
   }
+
   render() {
-    console.log('pro',this.props.user_rank, this.props.user.knowledge)
     const facts = this.props.funFacts.facts.map( (fact, i) => {
       const removeColon = fact.fact.split(':')
-      const words = removeColon.map( (word, k) => k === 0 ? <span key={k}><em>{word}</em><br/><br/></span> : <span key={k}>{word}</span> )
-      return (<p key={i}>{words}</p>)
+      const words = removeColon.map( (word, k) => k === 0 ? <p key={k}><em>{word}</em><br/><br/></p> : <p key={k}>{word}</p> )
+      return (<React.Fragment key={i}>{words}</React.Fragment>)
     })
     const randomFact = randomlySelectOne(facts)
 
@@ -37,18 +36,20 @@ class UserProfile extends React.Component {
       <div className="user-profile">
         <div className="left-column">
         <div className="user-info">
-        <h2>Welcome!</h2>
-        <img src="http://dragene.no/wp-content/uploads/2016/06/default1.jpg" alt="profile picture"/>
           { this.props.user.id === undefined ?
             ( <p>not loaded</p> )
             :
             (
-              <div>
+              <div className="text">
+                <h2>Welcome!</h2>
                 <h2>{`${this.props.user.firstname} ${this.props.user.lastname}`}</h2>
                 <p>Sushi Knowledge:<br/>{this.props.user.knowledge}</p>
               </div>
             )
           }
+          </div>
+
+          <div className="middle">
             <Link to={`/sushi-knowledge/${'Beginning'}`}><button>Beginning</button></Link>
             <br/>
             <Link to={`/sushi-knowledge/${'Rise-of-Sushi'}`}><button disabled={!(this.props.user_rank > 0)} onClick={ () => this.handleRoute(this.props.history)}>Rise of Sushi</button></Link>
@@ -56,10 +57,11 @@ class UserProfile extends React.Component {
             <Link to={`/sushi-knowledge/${'Type'}`}><button disabled={!(this.props.user_rank > 1)} onClick={ () => this.handleRoute(this.props.history)}>Type</button></Link>
             <br/>
             <Link to={`/sushi-knowledge/${'Etiquette'}`}><button disabled={!(this.props.user_rank > 2)} onClick={ () => this.handleRoute(this.props.history)}>Etiquette</button></Link>
-            <br/>
-            <span><button id="fact-dropdown" onClick={ () => this.setState({ clicked: !this.state.clicked }) }>Fun Fact</button></span>
-            <div id="fact-dropdown-content">
-              {randomFact}
+          </div>
+          <div id="fact-dropdown" onClick={ () => this.setState({ clicked: !this.state.clicked }) }>
+            <h2>Fun Fact</h2>
+            <div className="fact-dropdown-content">
+            {randomFact}
             </div>
           </div>
         </div>
