@@ -1,7 +1,7 @@
 /* bright red rgb(201, 33, 37); */
 
 /* red rgb(205, 59, 59);
-bright seablue rgb(123, 198, 218);
+bright seablue rgb(23, 27, 89);
 navy rgb(43, 44, 89); */
 
 *, *:before, *:after {
@@ -12,6 +12,7 @@ body {
   /* height: 100%; */
   font-family: 'Sarala', sans-serif;
   letter-spacing: 2px;
+  /* background-color: rgb(238, 238, 240); */
 }
 
 #root {

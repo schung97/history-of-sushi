@@ -3,10 +3,18 @@ header {
   font-family: 'Pragati Narrow', sans-serif;
   text-transform: uppercase;
   letter-spacing: 4px;
-  padding-top: 30px;
+  margin-bottom: 38px;
 }
-.index.app, .signin.app, .signup.app, .signedout.app {
+.index.app {
   text-align: center;
+  position: fixed;
+  top: 43vh;
+  right: 0;
+  left: 0;
+}
+.signin.app, .signup.app, .signedout.app {
+  text-align: center;
+  margin-top: 20vh;
 }
 
 .logo {
@@ -25,4 +33,19 @@ header {
   border-right: 2px solid;
   margin: 20px 40px;
   padding: 20px 40px;
+}
+
+.index:before {
+  content: '';
+  position: fixed;
+  background-color: rgb(233, 218, 168);
+  width: 300px;
+  height: 300px;
+  box-shadow: 11px 13px rgb(236, 177, 177);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
 }

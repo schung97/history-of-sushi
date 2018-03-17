@@ -28,8 +28,8 @@ class SignIn extends React.Component {
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <h2>Login</h2>
-        <input type="text" name="username" placeholder="username" value={this.state.auth.username}/>
-        <input type="password" name="password" placeholder="password" value={this.state.auth.password}/>
+        <input type="text" name="username" placeholder="USERNAME" value={this.state.auth.username}/>
+        <input type="password" name="password" placeholder="PASSWORD" value={this.state.auth.password}/>
         <input type="submit" name="submit" value="Login"/>
       </form>
     )

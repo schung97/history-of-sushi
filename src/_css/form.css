@@ -1,5 +1,5 @@
 .main > form {
-  border: 2px solid rgb(0, 35, 144);
+  border: 2px solid rgb(23, 27, 89);
   border-radius: 4px;
   padding: 66px 0px 0px;
   width: 50%;
@@ -27,7 +27,12 @@
   margin-bottom: 36px;
   font-size: 11px;
   letter-spacing: 3px;
-  text-transform: uppercase;
+}
+.main > form input[type=text]:hover, .main > form input[type=password]:hover {
+  border-bottom: 2px solid rgb(205, 59, 59);
+}
+.main > form input[type=text]:focus, .main > form input[type=password]:focus {
+  outline: none;
 }
 
 .main > form input[type=submit] {
@@ -40,4 +45,10 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   margin-top: 36px;
+}
+.main > form input[type=submit]:hover {
+  background-color: rgb(205, 59, 59);
+}
+.main > form input[type=submit]:focus {
+  outline: none;
 }

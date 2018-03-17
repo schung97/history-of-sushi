@@ -34,9 +34,9 @@ class SignUp extends React.Component {
         <h2>Sign Up</h2>
         <input type="text" name="firstname" placeholder="Firstname" value={this.state.user.firstname}/>
         <input type="text" name="lastname" placeholder="Lastname" value={this.state.user.lastname}/>
-        <input type="text" name="username" placeholder="Username" value={this.state.user.username}/>
-        <input type="password" name="password" placeholder="Password" value={this.state.user.password}/>
-        <input type="password" name="password_confirmation" placeholder="Password Confirmation" value={this.state.user.password_confirmation}/>
+        <input type="text" name="username" placeholder="USERNAME" value={this.state.user.username}/>
+        <input type="password" name="password" placeholder="PASSWORD" value={this.state.user.password}/>
+        <input type="password" name="password_confirmation" placeholder="PASSWORD CONFIRMATION" value={this.state.user.password_confirmation}/>
         <input type="submit" name="submit" value="Sign Up"/>
       </form>
     )
