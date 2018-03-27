@@ -110,6 +110,7 @@ details summary::-webkit-details-marker {
 }
 #fact-dropdown h2 {
   font-size: 30px;
+  cursor: pointer;
 }
 .fact-dropdown-content {
   display: block;

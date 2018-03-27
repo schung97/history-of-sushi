@@ -13,10 +13,14 @@
   text-align: center;
   margin-top: 20vh;
 }
-.signin.app .logo, .signup.app .logo, .signedout.app .logo, .sushiknowledge.app .logo {
+.signin.app .logo, .signup.app .logo, .signedout.app .logo, .sushiknowledge.app .logo, .suggestions.app .logo {
   transform: scale(1.8);
   margin-bottom: 42px;
 
+}
+.suggestions.app > header {
+    text-align: center;
+    margin-top: 5vh;
 }
 .home {
   border-left: 2px solid;

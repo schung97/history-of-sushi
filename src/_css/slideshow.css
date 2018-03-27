@@ -81,12 +81,13 @@
   color: rgb(205, 59, 59);
 }
 
-.hover h1 {
+.hover {
   width: 50px;
   margin: auto;
   cursor: pointer;
   transition: 0.3s;
   margin-top: 18px;
+  display: inline-block;
 }
 
 .hover:hover {
